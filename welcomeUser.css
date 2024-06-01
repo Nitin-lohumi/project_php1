@@ -1,0 +1,256 @@
+body{
+    padding:0;
+    margin:0px;
+    transition: all .5s linear;
+}
+::-webkit-scrollbar {
+    width:0px;
+    background: #000000;
+    color:red;
+    /* display: none; */
+}
+/* navbar **************************************************** */
+.navbar{
+    padding:0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    background: transparent;
+    z-index: 100;
+}
+.Your_profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 5px;
+    margin:0;
+    cursor: pointer;
+    transition: all .1s linear;
+    border-radius: .5rem;
+}
+.Your_profile:hover{
+    box-shadow: 1px 1px 2px grey;
+}
+.Your_profile .image img{
+ height:30px;
+ padding:6px;
+ width:30px;
+ margin:0;
+}
+.Your_profile p{
+    font-size: 15px;
+    padding: 0 6px;
+    text-transform: capitalize;
+    text-align: center;
+    margin:0;
+    position:relative;
+}
+.list_items{
+    display: flex;
+    flex-direction: row;
+    padding:0;
+    margin:0;
+}
+.list_items li{
+    list-style: none;
+}
+.list_items li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: .4rem;
+    font-size: 1rem;
+}
+.list_items li a:hover{
+    background: transparent;
+    box-shadow: 1px 1px 2px grey;
+}
+.logout-btn{
+    display: flex;
+    padding:0 5px;
+}
+.logout-btn button{
+    background: red;
+    outline:none;
+    border:none;
+    padding:4px;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.logout-btn button:hover{
+    animation-name:viberate;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition: all .1s ease-out; 
+    font-size: 1.1rem;
+    color: white;
+}
+@keyframes viberate {
+    0%{
+      transform: rotateX(15deg);
+    }
+    25%{
+      transform: rotateY(13deg);
+    }
+    50%{
+      transform: rotateX(15deg);
+    }
+    75%{
+      transform: rotateY(13deg);
+    }
+    100%{
+        transform: rotateX(15deg);
+    }
+}
+.profile_info{
+    display: grid;
+    position: absolute;
+    top:50px;
+    left:-400px;
+    min-width:300px;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 10px 5px rgba(97, 94, 94, 0.2);
+    align-items: center;
+    text-align: center;
+    padding:0;
+    margin:6px 0;
+    text-transform:capitalize;
+    transition: all .5s linear;
+    overflow-x: hidden;
+    border-radius: .3rem;
+}
+.profile_info button{
+    width:50%;
+    padding:6px;
+    margin:20px auto;
+    background: rgb(245, 37, 37);
+    outline: none;
+    border:none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all .1s linear;
+}
+.profile_info button:hover{
+    background: red;
+    color:white;
+    
+}
+.profile_info .name_heading{
+    text-align: center;
+    color:rgb(0, 84, 193);
+    text-shadow: 1px 1px 1px  black;
+    padding: 0;
+    margin:5px;
+    font-size: 1.5rem;
+    transition: all .1s linear;
+}
+.data_box{
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+}
+.data_box p{
+    display: flex;
+    padding:10px;
+    justify-content: start;
+    font-size: 1.1rem;
+    margin:10px;
+    border:1px solid black;
+    border-radius: .5rem;
+}
+.data_box p:hover {
+    background: rgb(103, 112, 91);
+    color:rgb(255, 255, 255);
+}
+.data_box p span{
+    padding: 0 10px;   
+}
+.profile-pass{
+    outline:none;
+    border:none;
+    text-align: start;
+    font-size: 17px;
+    background:transparent;
+}
+.data_box p i{
+    color:rgb(0, 7, 207);
+    padding:0  10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    /* text-shadow: 1px 1px 1px rgb(0, 26, 49); */
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+#show{
+    font-size: 16px;
+    position: absolute;
+    top:6px;
+    left:86%;
+    cursor: pointer;
+    color:rgb(255, 28, 28);
+    display: block;
+}
+#hided{
+    font-size: 16px;
+    position: absolute;
+    top:6px;
+    left:86%;
+    color:rgb(0, 240, 40);
+    cursor: pointer;
+    display: none;
+}
+/* ***************************************** */
+
+
+
+
+
+
+
+@media (max-width: 480px){
+    .massage_heading{ 
+        font-size: 2rem;
+        text-shadow: 1px 2px 1px rgb(236, 155, 155);
+        letter-spacing: 4px;
+        margin-top:50px;
+     }
+     button{
+        top:7vw;
+        color:rgb(252, 252, 252);
+        background: red;
+        border:none;
+        border-radius:.5rem;
+      }
+      .data_box{
+        display:flex;
+        flex-direction: column;
+        position:absolute;
+        top:47vw;
+        margin:2vw;
+        left: 0vw;
+        width:95vw;
+        border: 1px solid black;
+        text-align: center;
+    }
+    .data_box p .name_{
+        color:black;
+        font-size: 6vw;
+        padding:0;
+    }
+    .data_box p .pass_{
+        color:black;
+        font-size: 6vw;
+        padding:0;
+    }
+    .data_box p i{
+        color:rgb(0, 253, 0);
+        font-size: 5vw;
+    }
+
+}

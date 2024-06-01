@@ -1,0 +1,218 @@
+*{
+    padding:0;
+    margin: 0px;
+    box-sizing:border-box;
+}
+body{
+ background:rgb(95, 144, 109);
+  animation-name:slow;
+ animation-duration: 2s;
+  animation-iteration-count:1;
+  animation-direction: alternate;
+  transform: translate(0px , 60px);
+}
+@keyframes slow {
+    0%{
+     transform: scale(0);
+    }
+    100%{
+        transform: scale(1)translate(0px , 60px);
+    }
+}
+.container{
+   padding:10px;
+   padding-top:0;
+}
+
+.container h3{
+    text-align: center;
+    font-size:2rem;
+    color:rgb(0, 35, 234);
+    margin:0;
+    padding:0;
+    /* margin:5px; */
+    font-weight: 900;
+    
+}
+.container p{
+    text-align: center;
+    text-transform: capitalize;
+    color:rgb(0, 0, 0);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: -1px -1px 1px rgb(255, 255, 255);
+}
+label{
+  padding :10px;
+  padding-top:0;
+  color:rgb(31, 21, 21);
+  font-weight: 800;
+  margin-top:10px;
+}
+.link_login{
+    color:#091a09;
+    display:block;
+    font-size:1.3rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding:10px 450px;
+    margin:0;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-shadow: 2px 1px 1px rgb(60, 255, 0);
+}
+.link_login:hover{
+    color:rgb(2, 2, 255);
+    font-size: 1.6rem;
+}
+.n_p{ 
+    width:98%;
+    display:block;
+    border:none;
+    border-radius: .5rem;
+    padding:6px;
+    font-size:1rem;
+    margin:20px;
+    padding-left:10px;
+    text-transform: capitalize;
+}
+.n_p:focus{
+    outline:none;
+    border:1px solid rgb(0, 168, 48);
+  }
+.gender{
+    font-size:1.2rem;
+    padding:10px 0;
+    text-transform: capitalize;
+}
+.gender label{
+    color:rgb(35, 41, 41);
+}
+.phn{   
+    width:98%;
+    display:block;
+    padding:5px;
+    padding-left:10px;
+    border:none;
+    border-radius:.5rem;
+    margin:20px;
+    font-size:1rem;
+    text-transform: capitalize;
+}
+.phn:focus{
+    outline:none;
+    border:1px solid rgb(0, 168, 48);
+  }
+
+
+.btn
+{
+    width:20%;
+    float:right;
+    padding:10px;
+    margin-bottom: 5vw;
+    border-radius:.5rem;
+    border:none;
+    font-weight:600;
+    font-size:1.5rem;
+    background:rgb(9, 243, 9);
+}
+.btn:hover{
+    border:1px solid green;
+    color:rgb(255, 255, 255);
+    font-weight:700;
+}
+.reset{
+    width:20%;
+    float:left;
+    padding:10px;
+    margin-bottom: 5vw;
+    border-radius:.5rem;
+    border:none;
+    font-weight:600;
+    font-size:1.5rem;
+    background: red;
+}
+.reset:hover{
+    border:1px solid rgb(255, 5, 5);
+    color:rgb(255, 255, 255);
+    font-weight:700;
+}
+.dob{
+    margin: 5px 0;
+    width:25%;
+    padding:5px;
+    padding-left:6px;
+    border:none;
+    border-radius:.5rem;
+    margin-bottom:20px;
+    margin-left:10px;
+    font-size:1rem;
+}
+@media (max-width: 550px) {
+    .container{
+        width:90%;
+        margin:auto;
+        margin-top:0px;
+        padding:5px;
+        border: 1px solid black;
+    }
+    .btn{
+      width:100%;
+       padding:0px;
+    }
+    .dob{
+        width:50%;
+    }
+    .container h3{
+        font-size:2rem;
+        letter-spacing: 5px;
+        font-weight: 800;  
+        margin-top:0; 
+    }
+    .container p{
+        color:rgb(115, 120, 24);
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+        text-shadow: -0px -0px 0px rgb(0, 0, 0);
+    }
+
+    .n_p{ 
+        width:95%;
+        border-radius: .5rem;
+        padding:10px;
+        font-size:1.1rem;
+        margin:20px;
+        padding-left:10px;
+        text-transform: capitalize;
+    }
+    .phn{   
+        width:95%;
+        padding:10px;
+        padding-left:10px;
+       font-size:1.1rem;
+        text-transform: capitalize;
+    }
+    .dob{
+        width:60%;
+        font-size:1rem;
+        text-transform: capitalize;
+    }
+}
+@media (max-width: 300px){
+    body{
+        height:30rem;
+        font-size:.7rem;
+    }
+    .container{
+        height:90%;
+        margin:auto;
+    }
+    .btn{
+        font-size:1rem;
+    }
+    .reset{
+        font-size:1rem;
+    }
+
+}

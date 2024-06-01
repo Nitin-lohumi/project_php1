@@ -1,0 +1,200 @@
+body{
+ padding:0;
+ margin:0;
+ background: rgb(246, 246, 242);
+}
+.box{
+    width:29%;
+    border:0px solid rgb(121, 116, 116);
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    display:grid;
+    place-items: center;
+    padding:20px;
+    border-radius: .7rem;
+    box-shadow: -0px 1px 4px rgb(56, 55, 55);
+}
+
+.heading1{
+    color:rgb(0, 64, 255);
+    text-transform: capitalize;
+    text-shadow: 1px 3px 5px rgb(32, 29, 29);
+    padding:0px;
+    margin:0;
+    margin-top:0px;
+    margin-bottom: 11px;
+    border:0px solid black;
+
+}
+.name{
+    width:100%;
+    margin:auto;
+    padding:5px 0;
+    padding-left:7px;
+    margin-right:10px;
+    font-weight: 700;
+    border:none;
+    outline:1px solid black;
+    transition: all .3s linear;
+    border-radius: .4rem;
+    font-size:16px;
+}
+.name:focus{
+    border-radius: .7rem;
+    animation-name:viberate;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition: all .1s ease-out;   
+}
+@keyframes viberate {
+    0%{
+      transform: rotateX(15deg);
+      outline:1.5px solid rgb(255, 0, 0);
+    }
+  
+    25%{
+      transform: rotateY(13deg);
+      outline:1.5px solid rgb(0, 58, 249);
+    }
+    50%{
+      transform: rotateX(15deg);
+      outline:1.5px solid rgb(119, 252, 2);
+    }
+    75%{
+      transform: rotateY(13deg);
+      outline:1.5px solid rgb(30, 255, 0);
+    }
+    100%{
+        transform: rotateX(15deg);
+        outline:1.5px solid rgb(0, 178, 249);
+    }
+}
+
+
+.password{
+    width:100%;
+    margin:auto;
+    margin-top:10px;
+    margin-right:10px;
+    padding:5px 0;
+    padding-left:7px;
+    font-weight: 700;
+    border:none;
+    outline:1px solid black;
+    transition: all 1s linear;
+    border-radius: .4rem;
+    font-size:16px;
+
+}
+.password:focus{
+    outline:1.5px solid rgb(249, 191, 0);
+    border-radius: .7rem;
+    animation-name:viberate;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition: all .1s ease-out; 
+}
+i{
+    color:rgb(223, 19, 19);
+    font-size: 16px;
+    text-transform: capitalize;
+    line-height:15px;
+    margin: 0 10px;
+    padding: 0 10px;
+    transition: all 2s ease-in;
+}
+.btn{
+    width:100%;
+    margin:auto;
+    line-height: 20px;
+    margin-top:10px;
+    margin-bottom:10px;
+    text-transform: capitalize;
+    color:white;
+    background: #00ede9;
+    border:none;
+    border-radius: .5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 0px black;
+    cursor: pointer;
+    transition: all 1s linear;
+    font-size:1rem;
+}
+.btn:hover{
+ color:rgb(226, 245, 101);
+ background: rgb(8, 248, 0);
+}
+span{
+    border:0px solid black;
+    display:inline-block;
+    padding:0px;
+    margin-bottom:6px;
+    color:red;
+}
+.para1{
+    color:rgb(69, 68, 68);
+    text-transform: capitalize;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding:0;
+    margin:0;
+    margin-bottom: 5px;
+}
+.para1 a{
+    color:blue;
+    text-transform: capitalize;
+    text-decoration:none;
+}
+.para1 a:hover{
+    color:rgb(0, 124, 6);
+    font-weight: 700;
+}
+@media (max-width: 480px) {
+    .box{
+        /* background: #323131; */
+        width:80%;
+        border:.0px solid rgb(243, 85, 1);
+        padding:10px;
+    }   
+   .heading1{
+    text-shadow: 1px 3px 5px rgb(135, 111, 111);
+    margin-top:10px;
+}
+.name{
+    margin-top:5px;
+    padding:10px 0;
+    font-size:15px;
+    padding-left:6px;
+}
+.password{
+    margin:0;
+    padding:10px 0;
+    font-size:15px;
+    margin-top:5px;
+    padding-left:6px;
+}
+i{
+    font-size: 10px;
+    margin:0;
+}
+.btn{
+    color:rgb(255, 3, 3);
+    background: #24ed00f9;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  span{ 
+    padding-top:6px;
+    padding-bottom: 5px;
+}
+.para1{
+    color:rgb(69, 68, 68);
+    letter-spacing: 1px;
+    padding-top:5px;
+    margin:0;
+}
+}
