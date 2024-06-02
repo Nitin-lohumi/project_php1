@@ -187,7 +187,6 @@ Version Control Systems - GIT
       <h1 style="padding-bottom:20px; margin-bottom:20px;color:rgb(248, 43, 43);"><i class="fa-regular fa-copyright"></i>copyright - Nitin Lohumi</h1>
  </div>
 
-
  <script type="text/javascript"
  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
