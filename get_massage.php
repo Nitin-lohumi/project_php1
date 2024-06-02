@@ -1,19 +1,31 @@
 <?php
 session_start();
 $nameEnter="";
-if(isset($_SESSION['name'])){   
+if(isset($_SESSION['name'])){  
+include('connect.php');
+error_reporting(); 
 setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
 $nameEnter ="".$_SESSION['name'];
-include('connect.php');
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";
-if($sql){
-echo "";
+// *************************
+if(isset($_POST['update'])){
+  $updateQuery2=mysqli_query($con,"UPDATE data_secure SET name='$_POST[updatedname]',
+  password='$_POST[updatedpass]'WHERE name= '$_SESSION[name]' AND password = '$_SESSION[pas]'");
+  $updateQuery=mysqli_query($con,"UPDATE data_reistered SET name='$_POST[updatedname]',
+  password='$_POST[updatedpass]',DoB='$_POST[updatedDOb]', gender='$_POST[updatedGender]', Phone='$_POST[updatedPhone]' WHERE name= '$_SESSION[name]' AND password = '$_SESSION[pas]'");
+  if(isset($_POST['updatedname'])){
+    $_SESSION['name']= $_POST['updatedname'];
+    $_SESSION['pas'] = $_POST['updatedpass'];
+  }
+  header("Refresh:0; url=get_massage.php");  
 }
+// ***********************
 $result= $con->query($sql);
-$con->close();
+
 if(isset($_POST['logout'])){
-setcookie('userInformation',"name",time()-3600,'/');
-header("location:delete_session.php");
+  setcookie('userInformation',"name",time()-3600,'/');
+  header("location:delete_session.php");
+  $con->close();
 }
 }
 else{
@@ -31,7 +43,8 @@ else{
     <link rel="icon" href="pngegg.png">
 </head>
 <body>
-<form method="post">  
+<form method="post"> 
+ <!--navbarStart**********************-->
   <div class="navbar">
     <div class="Your_profile" id="yourProfile">
       <div class="image">
@@ -39,30 +52,32 @@ else{
       </div>
       <p><?php echo $nameEnter; ?></p>
     </div>
-
 <!-- ***** -->
 <div class="profile_info" id="profileInfo">
       <h1 class="name_heading"><?php echo $nameEnter; ?>'s profile</h1>
-          <?php if(isset($_SESSION['name'])){ ?>
-         <div class="data_box" id="box">
+       <?php if(isset($_SESSION['name'])||isset($_SESSION['name'])==($_POST['updatedname'])){ ?>
+     <div class="data_box" id="box">
       <?php while($rows=$result -> fetch_assoc()){ ?> 
-       <p><span>name :</span><i><?php echo $rows['name']?>    </i></p>
+       <p><span>name :</span><input type="text" class="profile-pass" id="name" name="updatedname" value=<?php echo $rows["name"]?>></p>
        <p>
       <span>password :</span>
-     <i> <input type="password" id="password" class="profile-pass" readonly value=<?php echo $rows["password"]?> >
+     <i><input type="password" id="password" class="profile-pass" name="updatedpass"  value=<?php echo $rows["password"]?> >
       <i id="show" class="fa-solid fa-eye"></i>
       <i class="fa-solid fa-eye-slash" id="hided"></i>
-       </i>
-     </p>  
-       <p><span>DOB :</span><i><?php echo $rows['DoB']?>  </i></p>
-       <p><span>Gender :</span><i><?php echo $rows['gender']?></i></p>
-       <p><span>Phone no. :</span><i><?php echo $rows['Phone']?>    </i></p>
+       </i></p>  
+       <p><span>DOB :</span><input type="date" class="profile-pass" id="dob" name="updatedDOb" value=<?php echo $rows["DoB"]?>></p>
+       <p><span>Gender :</span><input type="text" class="profile-pass" name="updatedGender" id="gender"  value=<?php echo $rows["gender"]?> ></p>
+       <p><span>Phone no. :</span><input type="text" class="profile-pass" name="updatedPhone" id="phone" value=<?php echo $rows["Phone"]?> ></p>
+      </div>
+      <i id="update_heading"></i>
+      <div class="edit-logout">
+        <input type="button" value="Edit" id="edit" class="edit" name="edit">
+        <input type="submit" value="update" id="update" class="update" name="update">
+        <button name="logout" id="logoutbtn">logout</button>
       </div>
       <p>thanks for login this page</p>
-      <br>
-      <p>if you want to log out just click on logout button</p>
-      <button name="logout">logout</button>
-      <?php break; } }?>
+      <p id="advice_logout">if you want to log out just click on logout button</p>
+       <?php break;} }?>
     </div>
 <!-- **** -->
     <ul class="list_items">
@@ -78,6 +93,7 @@ else{
     <?php }?>
    </div>
   </div>
+  <!-- *************navbarEnd ******************-->
 </form>
 </body>
 <script src="script.js"></script>
