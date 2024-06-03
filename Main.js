@@ -24,3 +24,25 @@ function SendMail(){
     document.getElementById('message').value="";
     }
 }
+let check =0;
+let menuClick = document.getElementById("menuClick");
+let showMenu = document.getElementById("showMenu");
+menuClick.addEventListener("click",()=>{
+if(check==0){
+showMenu.style.left="25%";
+check=1;
+}
+else{
+    showMenu.style.left="150%";
+    check=0;
+}
+});
+document.addEventListener("click",e=>{
+    if(!showMenu.contains(e.target)&&e.target!==menuClick){
+       showMenu.style.left="110%";
+    //    setTimeout(() => {
+    //        document.location.reload();
+    //      }, 700);
+       check=0;
+    }
+   });
