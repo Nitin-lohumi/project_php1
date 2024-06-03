@@ -45,7 +45,7 @@
         </div>
     </div>
         <p  data-aos="zoom-in-down" data-aos-duration="2000">
-          hey !  I am Nitin Lohumi. <br>
+          hey !  I am <strong>Nitin Lohumi</strong>. <br>
           I am a Fullstack Developer .  I am particularly interested in the dynamic nature of web development.
            i  learned exploring programming languages like - PHP, JavaScript, and Python, as well as frameworks                        such as AngularJS and ReactJS, node Js, express js. 
           I am also familiar with front-end development tools like AJAX, CSS frameworks, and JavaScript                        libraries.
@@ -57,6 +57,69 @@
         </p>
        <!-- data-aos="zoom-out-left" -->
 </div>
+    <div class="project_resume">
+        <div class="projects">
+            <div class="project" data-aos="zoom-out-left" data-aos-duration="2000">
+               <div class="box">
+                <p>nitin's project</p>
+                    <a target="_blank" href="https://chatapp-s9gx.onrender.com/"> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div> 
+               <h2> Real Time chatApp</h2>
+               <div class="imgBox">
+                <img src="photo2.jpg" alt="">
+               </div>
+               <div class="iconBox">
+                <a target="_blank" href="https://github.com/Nitin-lohumi"><i class="fa-brands fa-github"></i></a>
+                <a target="_blank" href="https://github.com/Nitin-lohumi"> <i class="fa-solid fa-code-branch"></i></a>
+               </div>
+            </div>
+                <div class="project" data-aos="zoom-out" data-aos-duration="2000">
+                    <div class="box">
+                     <p>nitin's project</p>
+                     <a target="_blank" href="https://nitin-lohumi.github.io/lohuminitin/"> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                     </div> 
+                    <h2>grocery shop</h2>
+                    <div class="imgBox">
+                     <img src="photo2.jpg" alt="">
+                    </div>
+                    <div class="iconBox">
+                        <a target="_blank" href="https://github.com/Nitin-lohumi"><i class="fa-brands fa-github"></i></a>
+                        <a target="_blank" href="https://github.com/Nitin-lohumi"> <i class="fa-solid fa-code-branch"></i></a>
+                    </div>
+            </div>
+            <div class="project" data-aos="zoom-out" data-aos-duration="2000">
+                <div class="box">
+                 <p>nitin's project</p>
+                 <a target="_blank" href="https://noteappusingreact-git-main-nitins-projects-dde580ab.vercel.app/"> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                 </div> 
+                <h2>Note App</h2>
+                <div class="imgBox">
+                 <img src="photo2.jpg" alt="">
+                </div>
+                <div class="iconBox">
+                    <a target="_blank" href="https://github.com/Nitin-lohumi"><i class="fa-brands fa-github"></i></a>
+                    <a target="_blank" href="https://github.com/Nitin-lohumi"> <i class="fa-solid fa-code-branch"></i></a>
+                </div>
+        </div>
+        <div class="project" data-aos="zoom-out-right" data-aos-duration="2000">
+            <div class="box">
+             <p>nitin's project</p>
+             <a target="_blank" href="https://imageeditor-nitins-projects-dde580ab.vercel.app/"> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+             </div> 
+            <h2>image Editor</h2>
+            <div class="imgBox">
+             <img src="photo2.jpg" alt="">
+            </div>
+            <div class="iconBox">
+                <a target="_blank" href="https://github.com/Nitin-lohumi"><i class="fa-brands fa-github"></i></a>
+                <a target="_blank" href="https://github.com/Nitin-lohumi"> <i class="fa-solid fa-code-branch"></i></a>
+            </div>
+    </div>
+    </div>
+        <div class="rusume">
+           
+        </div>
+    </div>
 </div>
         <div class="experties">
             <h3 >experties</h3>
