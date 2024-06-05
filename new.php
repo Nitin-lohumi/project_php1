@@ -4,12 +4,14 @@
   $massage="";
   $massage1="";
     if(isset($_POST['submit']))
-    {
+    { 
       $name=$_POST['name'];
+      $email=$_POST['email'];
       $lock=$_POST['pass'];
       $dob=$_POST['dob'];
       $gender=$_POST['gen'];
       $phone=$_POST['phone'];
+      $_SESSION['email'] = $email;
       include('connect.php');
        if((empty($name))&&(empty($lock))){
             $massage="not be null";
@@ -23,8 +25,8 @@
                 $massage="Name is not avilable !";
             }
             else{
-             $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,password) VALUES ('$name','$lock');");
-             $sql  = mysqli_query($con,"INSERT INTO data_reistered (name,password,DoB,gender, Phone) VALUES    ('$name','$lock','$dob','$gender','$phone');");
+             $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
+             $sql  = mysqli_query($con,"INSERT INTO data_reistered (name,email,password,DoB,gender, Phone) VALUES    ('$name','$email','$lock','$dob','$gender','$phone');");
              $massage="data is submited";
              if($massage){
                 $massage1="Click and login";
@@ -53,9 +55,11 @@
 
          <br>
          <br>
-         <form  method="POST">
+         <form method="POST">
            <label for="u_name">NAME:</label>  
            <input type="text" placeholder="Enter your name"  name="name"  id="u_name" class="n_p" autocomplete="off"><br>
+           <label for="u_email">email:</label>  
+           <input type="email" placeholder="Enter your email"  name="email"  id="u_email" class="n_p" autocomplete="off"><br>
            <label for="u_pass">PASSWORD:</label>
            <input type="password" placeholder="create a strong password"  name="pass"  id="u_pass" class="n_p" autocomplete="off"><br>
            <label for="dob"> DOB </label>
@@ -65,8 +69,12 @@
             <label>male<input type="radio" value="male" name="gen" id="gen"></label>
             <label>female<input type="radio" value="female" name="gen" id="gen"></label>
             </label>
-           </div>
-        <br>
+          </div>
+          <label for="img">
+            <input type="file" accept="image/*" id="img" name="img">
+          </label>
+          <br>
+          <br>
            <label for="phone">PHONE : </label><input type="number" id="phone" class="phn" name="phone" placeholder="Enter your phone" id="phn"  autocomplete="off"><br>
            <br>
             <button class="btn" id="submit" name="submit">Submit</button>                

@@ -17,6 +17,7 @@ if(isset($_POST['update'])){
   if(isset($_POST['updatedname'])){
     $_SESSION['name']= $_POST['updatedname'];
     $_SESSION['pas'] = $_POST['updatedpass'];
+    $_SESSION['email'] = $_POST['updatedEmail'];
   }
    header("Refresh:0; url=get_massage.php"); 
 }
@@ -71,8 +72,9 @@ else{
       <i class="fa-solid fa-eye-slash" id="hided"></i>
        </i></p>  
        <p><span>DOB :</span><input type="date" class="profile-pass" id="dob" name="updatedDOb" value=<?php echo $rows["DoB"]?>></p>
+       <p><span>email:</span><input type="email" class="profile-pass" id="email" name="updatedEmail" value=<?php echo $rows["email"]?>></p>
        <p><span>Gender :</span><input type="text" class="profile-pass" name="updatedGender" id="gender"  value=<?php echo $rows["gender"]?> ></p>
-       <p><span>Phone no. :</span><input type="text" class="profile-pass" name="updatedPhone" id="phone" value=<?php echo $rows["Phone"]?> ></p>
+       <p><span>Phone no.:</span><input type="text" class="profile-pass" name="updatedPhone" id="phone" value=<?php echo $rows["Phone"]?> ></p>
       </div>
       <i id="update_heading"></i>
       <div class="edit-logout">

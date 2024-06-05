@@ -17,8 +17,7 @@ session_start();
     else if(($pass=="")){
          $passError=" * password should not be null characters"; 
          $check=1;  
-        }
-   
+    }
      else{
       include('connect.php');
         $sql=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE name = '$name' AND password = '$pass'"); 
