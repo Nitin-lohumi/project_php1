@@ -1,7 +1,8 @@
 <?php
 session_start();
 $nameEnter="";
-if(isset($_SESSION['name'])){  
+if(isset($_SESSION['name'])){ 
+// include('protfolio/Main.css'); 
 include('connect.php');
 error_reporting(); 
 setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
@@ -17,7 +18,7 @@ if(isset($_POST['update'])){
     $_SESSION['name']= $_POST['updatedname'];
     $_SESSION['pas'] = $_POST['updatedpass'];
   }
-  header("Refresh:0; url=get_massage.php");  
+   header("Refresh:0; url=get_massage.php"); 
 }
 // ***********************
 $result= $con->query($sql);
@@ -41,16 +42,20 @@ else{
     <link rel="stylesheet" href="welcomeUser.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="pngegg.png">
-</head>
-<body>
+</head> 
+<body> 
 <form method="post"> 
- <!--navbarStart**********************-->
+ <!--******************navbarStart**********************-->
   <div class="navbar">
     <div class="Your_profile" id="yourProfile">
-      <div class="image">
-        <img src="pngegg.png" alt="img">
+      <div class="image" id="imgclick">
+        <img src="pngegg.png" alt="img" id="img">
       </div>
-      <p><?php echo $nameEnter; ?></p>
+      <p id="nameclick"><?php echo $nameEnter; ?></p>
+    </div>
+
+    <div class="hide_menu">
+            <i class="fa-solid fa-bars" id="menu_mobile"></i>
     </div>
 <!-- ***** -->
 <div class="profile_info" id="profileInfo">
@@ -80,45 +85,18 @@ else{
        <?php break;} }?>
     </div>
 <!-- **** -->
-    <ul class="list_items">
-    <li><a href="">home</a></li>
-    <li><a href="">about</a></li>
-    <li><a href="">contact</a></li>
-    <li><a href="">profile</a></li>
-    <li><a href="">projects</a></li>
-    </ul>
    <div class="logout-btn">
    <?php if(isset($_SESSION['name'])){?>
     <button name="logout">logout</button>
     <?php }?>
    </div>
+
   </div>
   <!-- *************navbarEnd ******************-->
+  <div>
+    
+   </div>
 </form>
 </body>
 <script src="script.js"></script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- *** -->
-<!-- <h1 class="massage_heading"><?php //echo $nameEnter; ?></h1> -->
-<?php  //if(isset($_SESSION['name'])){ ?>
-<!-- <button name="logout">logout</button>
-<div class="data_box" id="box">
-  <?php //while($rows=$result -> fetch_assoc()){ ?> 
-  <p><span class="name_">name </span>:<i><?php //echo $rows['name']?>    </i></p>
-  <p><span class="pass_">password </span>:<i><?php //echo $rows['password']?></i></p>
-</div> -->
-<!-- <?php // break; } }?> -->
-<!-- **** -->

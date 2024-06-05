@@ -10,12 +10,10 @@ session_start();
     $pass= $_POST['password'];
     $_SESSION['name']=$name;
     $_SESSION['pas']=$pass;
-      
     if(($name=="")){
            $nameError="* name should not be null";
            $check=1;
         }
-
     else if(($pass=="")){
          $passError=" * password should not be null characters"; 
          $check=1;  
@@ -42,7 +40,6 @@ session_start();
     echo "";
     session_destroy();
   }
-
  ?>   
 <!DOCTYPE html>
 <html lang="en">

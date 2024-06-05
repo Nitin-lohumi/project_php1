@@ -10,6 +10,9 @@ let profileInfo = document.getElementById("profileInfo");
 let edit = document.getElementById("edit");
 let update = document.getElementById("update");
 let update_heading= document.getElementById("update_heading");
+let imgclick = document.getElementById("imgclick");
+let img = document.getElementById("img");
+let nameclick = document.getElementById("nameclick");
 let check =0;
 Name.setAttribute('readonly', true);
 password.setAttribute('readonly',true);
@@ -38,15 +41,29 @@ yourProfile.addEventListener("click",()=>{
     }
 });
 document.addEventListener("click",e=>{
- if(!profileInfo.contains(e.target)&&e.target!==yourProfile){
+ if(!profileInfo.contains(e.target)&&e.target!=yourProfile && e.target!=imgclick && 
+ e.target!=nameclick && e.target!=img&&e.target!==phoneMenu){
     profileInfo.style.left="-400px";
-    setTimeout(() => {
-        document.location.reload();
-      }, 700);
+    updated();
     check=0;
  }
 });
-edit.addEventListener("click",()=>{
+// for mobile phone menu button
+let phoneMenu = document.getElementById("menu_mobile");
+phoneMenu.addEventListener("click",()=>{
+    if(check == 0){
+        profileInfo.style.left="0px";
+        profileInfo.style.transition="all .5s linear";
+        check=1;
+    }
+    else{
+        profileInfo.style.left="-400px";
+        check =0;
+    }
+});
+// *******************************
+edit.addEventListener("click",editing);
+    function editing(){
     edit.style.display="hidden";
     update.style.display="block";
     Name.removeAttribute('readonly');
@@ -54,7 +71,7 @@ edit.addEventListener("click",()=>{
     dob.removeAttribute('readonly');
     gender.removeAttribute('readonly');
     phone.removeAttribute('readonly');
-    profileInfo.style.background="grey";
+    profileInfo.style.background="white";
     Name.style.background="lightGrey";Name.style.padding = "8px 6px";
     password.style.background="lightGrey"; password.style.padding = "8px 6px";
     password.type="text";show.style.display="none";hided.style.display="none";
@@ -64,8 +81,9 @@ edit.addEventListener("click",()=>{
     update_heading.innerHTML= "click to update button to set your profile update";
     document.getElementById("advice_logout").style.display="none";
     document.getElementById("logoutbtn").style.display="none";
-});
-update.addEventListener("click",()=>{
+}
+update.addEventListener("click",updated());
+function updated(){
     edit.style.display="block";
     update.style.display="none";
     profileInfo.style.background="transprent";
@@ -84,5 +102,4 @@ update.addEventListener("click",()=>{
    document.getElementById("advice_logout").style.display="block";
    document.getElementById("logoutbtn").style.display="block";
    update_heading.style.display="none";
-   alert("profile uodated. Tap to you profile to see this");
-})
+}
