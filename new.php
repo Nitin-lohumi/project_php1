@@ -4,30 +4,61 @@
   $massage="";
   $massage1="";
     if(isset($_POST['submit']))
-    { 
+    {
+      error_reporting(0); 
+      // $status="";
+      include('connect.php');
       $name=$_POST['name'];
       $email=$_POST['email'];
       $lock=$_POST['pass'];
       $dob=$_POST['dob'];
       $gender=$_POST['gen'];
       $phone=$_POST['phone'];
+      $file_name=  $_FILES['uploadImage']['name'];
+      $temp_name =   $_FILES['uploadImage']['tmp_name'];
+      // print_r($_FILES['uploadImage']);
+      $img_explode = explode('.',$file_name);
+      $img_ext = end($img_explode);
+      $extension = ['pgn','jpeg', 'jpg'];
       $_SESSION['email'] = $email;
-      include('connect.php');
+      $time = time();
+      $new_img_name;
        if((empty($name))&&(empty($lock))){
             $massage="not be null";
        }
-        else {
-         $query1=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE name = '$name'"); 
+       else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+          $massage ="please Enter valid mail";
+       }
+       else if(empty($file_name)){
+        $massage ="image is not inserted ";
+       }
+       else {
+        if(in_array($img_ext,$extension)){
+          $time = time();
+          $new_img_name=$time.$file_name;
+          }  
+          move_uploaded_file($temp_name,"images/".$new_img_name);
+          $query1=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email'"); 
           $num1 = mysqli_num_rows($query1);
           if($num1>0)
             {
                 $row = mysqli_fetch_array($query1);
-                $massage="Name is not avilable !";
+                $massage="data is already avilable !";
+                // echo "<script>alert('email is already avaiable');</script>";
             }
             else{
+            $status="active";
+            $random_id = rand(time(),800000);
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
-             $sql  = mysqli_query($con,"INSERT INTO data_reistered (name,email,password,DoB,gender, Phone) VALUES    ('$name','$email','$lock','$dob','$gender','$phone');");
+             $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender, Phone,img,status) VALUES    ('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status');");
              $massage="data is submited";
+             if($sql){
+               $sql3 = mysqli_query($con, "select * from data_reistered where email = '$email'");
+               if(mysqli_num_rows($sql3)>0){
+                 $row =  mysqli_fetch_assoc($sql3);
+                 $_SESSION['unique_id'] = $row['unique_id'];
+               }
+             }
              if($massage){
                 $massage1="Click and login";
              }
@@ -55,7 +86,7 @@
 
          <br>
          <br>
-         <form method="POST">
+         <form method="POST" enctype="multipart/form-data">
            <label for="u_name">NAME:</label>  
            <input type="text" placeholder="Enter your name"  name="name"  id="u_name" class="n_p" autocomplete="off"><br>
            <label for="u_email">email:</label>  
@@ -71,7 +102,7 @@
             </label>
           </div>
           <label for="img">
-            <input type="file" accept="image/*" id="img" name="img">
+            <input type="file" accept="image/*" id="img" name="uploadImage">
           </label>
           <br>
           <br>

@@ -95,10 +95,37 @@ else{
 
   </div>
   <!-- *************navbarEnd ******************-->
-  <div>
-    
+<div>
+  <div class="wrapper">
+        <section class="user">
+            <?php   
+            $sql  = mysqli_query($con,"SELECT * FROM data_reistered WHERE email ='$_SESSION[name]'"); 
+            if(mysqli_num_rows($sql)>0){
+                $row = mysqli_fetch_assoc($sql);
+            }
+            ?>
+            <header>
+                <div class="content">
+                    <img src="images/<?php echo $rows["img"] ?>" alt="">
+                    <div class="detail">
+                        <span><?php echo $rows["name"];?></span>
+                        <p><?php echo $rows["status"]; ?></p>
+                    </div>
+                </div>
+            </header>
+            <div class="search">
+                <!-- <span class="text">select a user to start</span> -->
+                <input type="text" name="search" id="searchbar" placeholder="Enter the name to search">
+                <button id="searchbtn"><i class="fas fa-search"></i></button>
+            </div>
+            <?php // include("users.php"); ?>
+            <div class="user_list" id="userlist">
+           </div>
+        </section>
+    </div>
    </div>
 </form>
 </body>
+<script src="user.js"></script>
 <script src="script.js"></script>
 </html>

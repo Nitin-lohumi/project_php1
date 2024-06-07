@@ -11,7 +11,7 @@ body{
     padding:10px;
     display: flex;
     justify-content: center;
-    width:80%;
+    width:90%;
     margin:auto;
     position:absolute;
     top:50%;
@@ -146,11 +146,11 @@ a{
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 8px rgb(152, 139, 139);
-    width:80%;
+    width:90%;
     display: flex;
     flex-direction: column;
     border-radius: .10rem;
-    max-height: 450px;
+    max-height: 630px;
     overflow-x:hidden;
 }
 .chat-area::-webkit-scrollbar {
@@ -249,5 +249,31 @@ a{
 }
 .sendmsg{
     display: flex;
-    flex-direction: row;
+    width: 99.4%;
+    background: white;
+    justify-content: center;
+    padding: 10px 1px;
+    position: sticky;
+    bottom: -1px;
+    z-index: 100;
+}
+.sendmsg input[type="text"]{
+    padding: 5px 8px;
+    font-size: 1.1rem;
+    width:85%;
+    border-radius: .6rem;
+    outline:none;
+    border:none;
+    box-shadow: 1px 1px 5px rgb(102, 104, 101);
+}
+.sendmsg .button{
+    /* padding: 5px 8px; */
+    font-size: 1.1rem;
+    border-radius: .6rem;
+    outline:none;
+    border:none;
+    cursor: pointer;
+    margin-left: 6px;
+    box-shadow: 1px 1px 5px rgb(102, 190, 35);
+    background: white;
 }
