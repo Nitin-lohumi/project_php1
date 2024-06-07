@@ -4,7 +4,7 @@ $nameEnter="";
 if(isset($_SESSION['name'])){ 
 // include('protfolio/Main.css'); 
 include('connect.php');
-error_reporting(); 
+error_reporting(0); 
 setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
 $nameEnter ="".$_SESSION['name'];
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";
@@ -29,6 +29,11 @@ if(isset($_POST['logout'])){
   header("location:delete_session.php");
   $con->close();
 }
+// $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$_SESSION[email]'");
+// if(mysqli_num_rows($sql3)>0){
+//   $rows =  mysqli_fetch_assoc($sql3);
+//   $_SESSION["unique_id"] = $rows["unique_id"];
+// }
 }
 else{
        header("location:delete_session.php");  

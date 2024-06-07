@@ -6,6 +6,7 @@
 //  else{
 //   header('location:index.php');
 //  }
+echo $_SESSION['unique_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +44,8 @@
                     </div>
                 </div>
             </div>
-            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
-            <input type="text" name="incoming_id" value="<?php echo $user_id ?>" hidden>
+            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>">
+            <input type="text" name="incoming_id" value="<?php echo $user_id;?>">
           <form class="sendmsg" action="#" autocomplete="off">
               <input type="text" placeholder="send your msg" id="text" name="textsend">
                <input type="submit" value="send" class="button" id="click">
