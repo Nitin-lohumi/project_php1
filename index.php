@@ -5,25 +5,31 @@ session_start();
  $dataError="";
  $suggest="";
   if(isset($_POST['button'])){
-    $name=$_POST['name'];
-    $name_lenght=strlen($name);
+    // $name=$_POST['name'];
+    // $name_lenght=strlen($name);
     $pass= $_POST['password'];
-    $_SESSION['name']=$name;
+    $email = $_POST["email"];
+    // $_SESSION['name']=$name;
     $_SESSION['pas']=$pass;
-    if(($name=="")){
-           $nameError="* name should not be null";
+    $_SESSION["email"]= $email;
+    if(($email=="")){
+           $nameError="* email should not be null";
            $check=1;
         }
     else if(($pass=="")){
          $passError=" * password should not be null characters"; 
          $check=1;  
     }
+    else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+      $nameError ="please Enter valid mail";
+   }
      else{
       include('connect.php');
-        $sql=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE name = '$name' AND password = '$pass'"); 
+        $sql=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email' AND password = '$pass'"); 
         $num = mysqli_num_rows($sql);
         if($num>0) {
                $row = mysqli_fetch_array($sql);
+               $_SESSION['name']=$row["name"];
                header("location:get_massage.php");
                exit();
           }
@@ -54,7 +60,7 @@ session_start();
 <h1 class="heading1">login</h1>
    <form method="post">
     <span style="color:red;"><?php echo $dataError."<br>" ."<br>"?></span>
-  <input type="text" placeholder="Enter your name" name="name" class="name">
+  <input type="email" placeholder="Enter your email" name="email" class="name" required>
  
   <i style="color:red;"><br><?php echo $nameError ?></i>
   <br>

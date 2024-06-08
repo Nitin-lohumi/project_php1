@@ -1,12 +1,11 @@
 <?php 
   session_start();
-//   if(isset($_SESSION['name'])){
-//     echo "entered";
-//  }
-//  else{
-//   header('location:index.php');
-//  }
-echo $_SESSION['unique_id'];
+  if(isset($_SESSION['unique_id'])){
+    //   echo "entered";
+ }
+ else{
+  header('location:index.php');
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,17 +35,12 @@ echo $_SESSION['unique_id'];
                         <p><?php echo $row["status"] ?></p>
                     </div>
             </header>
-            <div class="chat-Box">
-                <div class="chat outgoing">
-                    <!-- <img src="bg3.jpg" alt=""> -->
-                    <div class="details">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur nesciunt, quisquam laboriosam ad delectus aspernatur deserunt eius necessitatibus autem sit aut doloremque minus corrupti excepturi ducimus fugiat id facere sunt?</p>
-                    </div>
-                </div>
+            <div class="chat-Box" id="chatBox">
+
             </div>
-            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>">
-            <input type="text" name="incoming_id" value="<?php echo $user_id;?>">
-          <form class="sendmsg" action="#" autocomplete="off">
+            <form action="#"  class="sendmsg"  autocomplete="off">
+            <input type="text" name="outgoing_id" value="<?php echo $user_id; ?>" hidden>
+            <input type="text" name="incoming_id" value="<?php echo $_SESSION['unique_id'];;?>" hidden>
               <input type="text" placeholder="send your msg" id="text" name="textsend">
                <input type="submit" value="send" class="button" id="click">
         </from>

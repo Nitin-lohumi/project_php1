@@ -3,7 +3,7 @@
 session_start();
 
 if(isset($_SESSION['unique_id'])){
-  include_once "connect.php";
+  include_once "../connect.php";
   $outgoing_id = mysqli_real_escape_string($con,$_POST['outgoing_id']);
   $incoming_id = mysqli_real_escape_string($con,$_POST['incoming_id']);
   $massage = mysqli_real_escape_string($con,$_POST['textsend']);
@@ -12,7 +12,6 @@ if(isset($_SESSION['unique_id'])){
      VALUES ('$outgoing_id','$incoming_id','$massage'); 
     ");
   }
- 
 }else{
     header("location:../index.php");
 }

@@ -4,16 +4,19 @@ $nameEnter="";
 if(isset($_SESSION['name'])){ 
 // include('protfolio/Main.css'); 
 include('connect.php');
-error_reporting(0); 
+// error_reporting(0); 
 setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
 $nameEnter ="".$_SESSION['name'];
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";
 // *************************
 if(isset($_POST['update'])){
+
   $updateQuery2=mysqli_query($con,"UPDATE data_secure SET name='$_POST[updatedname]',
-  password='$_POST[updatedpass]'WHERE name= '$_SESSION[name]' AND password = '$_SESSION[pas]'");
+  password='$_POST[updatedpass]' WHERE name= '$_SESSION[name]' AND password = '$_SESSION[pas]'");
   $updateQuery=mysqli_query($con,"UPDATE data_reistered SET name='$_POST[updatedname]',
-  password='$_POST[updatedpass]',DoB='$_POST[updatedDOb]', gender='$_POST[updatedGender]', Phone='$_POST[updatedPhone]' WHERE name= '$_SESSION[name]' AND password = '$_SESSION[pas]'");
+  password='$_POST[updatedpass]',DoB='$_POST[updatedDOb]', gender='$_POST[updatedGender]', Phone='$_POST[updatedPhone]',
+  email='$_POST[updatedEmail]'
+  WHERE email= '$_SESSION[email]' AND password = '$_SESSION[pas]'");
   if(isset($_POST['updatedname'])){
     $_SESSION['name']= $_POST['updatedname'];
     $_SESSION['pas'] = $_POST['updatedpass'];
@@ -29,7 +32,16 @@ if(isset($_POST['logout'])){
   header("location:delete_session.php");
   $con->close();
 }
-// $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$_SESSION[email]'");
+$sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$_SESSION[email]'");
+if($rows=$sql3 -> fetch_assoc()){
+     $_SESSION['unique_id']=$rows['unique_id'];
+    //  echo "hello from session". $_SESSION['unique_id'];
+}
+// echo $_SESSION["unique_id"];
+// echo $_SESSION["email"];
+// echo $_SESSION['pas'];
+// echo $_SESSION["name"];
+
 // if(mysqli_num_rows($sql3)>0){
 //   $rows =  mysqli_fetch_assoc($sql3);
 //   $_SESSION["unique_id"] = $rows["unique_id"];
@@ -104,7 +116,7 @@ else{
   <div class="wrapper">
         <section class="user">
             <?php   
-            $sql  = mysqli_query($con,"SELECT * FROM data_reistered WHERE email ='$_SESSION[name]'"); 
+            $sql  = mysqli_query($con,"SELECT * FROM data_reistered WHERE email ='$_SESSION[email]'"); 
             if(mysqli_num_rows($sql)>0){
                 $row = mysqli_fetch_assoc($sql);
             }
@@ -125,6 +137,7 @@ else{
             </div>
             <?php // include("users.php"); ?>
             <div class="user_list" id="userlist">
+
            </div>
         </section>
     </div>

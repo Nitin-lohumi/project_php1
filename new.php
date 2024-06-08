@@ -20,7 +20,8 @@
       $img_explode = explode('.',$file_name);
       $img_ext = end($img_explode);
       $extension = ['pgn','jpeg', 'jpg'];
-      $_SESSION['email']= $email;
+      // $_SESSION['email']= $email;
+      // echo $_SESSION['email'];
       $time = time();
       $new_img_name;
        if((empty($name))&&(empty($lock))){
@@ -49,14 +50,15 @@
             else{
             $status="active";
             $random_id = rand(time(),800000);
-            $_SESSION['unique_id'] = "1231";
+            // $_SESSION['unique_id'] = "1231";
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
              $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status');");
              $massage="data is submited";
-               $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$_SESSION[email]'");
+               $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$email'");
                if(mysqli_num_rows($sql3)>0){
                  $rows =  mysqli_fetch_assoc($sql3);
                  $_SESSION['unique_id'] = $rows['unique_id'];
+                 $_SESSION['email'] = $rows["email"];
                }
                else{
                 $_SESSION['unique_id'] = "  ";
