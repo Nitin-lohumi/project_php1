@@ -28,9 +28,11 @@ session_start();
         $sql=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email' AND password = '$pass'"); 
         $num = mysqli_num_rows($sql);
         if($num>0) {
-               $row = mysqli_fetch_array($sql);
-               $_SESSION['name']=$row["name"];
-               header("location:get_massage.php");
+          $status="online";
+          $sql1 = mysqli_query($con,"UPDATE data_reistered  SET status='$status' where email='$_SESSION[email]'");
+          $row = mysqli_fetch_array($sql);
+          $_SESSION['name']=$row["name"];
+          header("location:get_massage.php");
                exit();
           }
         else{

@@ -137,7 +137,6 @@ else{
             </div>
             <?php // include("users.php"); ?>
             <div class="user_list" id="userlist">
-
            </div>
         </section>
     </div>

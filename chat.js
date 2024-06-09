@@ -14,11 +14,18 @@ sendbtn.onclick = () =>{
                 // let data = xhr.response;
                 // console.log(data);
                 input_field.value = "";
+                scrolltoBottom();
             }
          }
     }
     let fromData = new FormData(form);
     xhr.send(fromData);
+}
+chatbox.onmouseenter=()=>{
+    chatbox.classList.add("active");
+}
+chatbox.onmouseleave = ()=>{
+    chatbox.classList.remove("active");
 }
 setInterval(()=>{
     let xhr = new XMLHttpRequest();
@@ -28,9 +35,15 @@ setInterval(()=>{
             if(xhr.status==200){
                 let data = xhr.response;
                 chatbox.innerHTML = data;
+                if(!chatbox.classList.contains("active")){
+                    scrolltoBottom();
+                }
             }
          }
     }
     let formData = new FormData(form);
     xhr.send(formData);
-},500);
+},200);
+function scrolltoBottom(){
+    chatbox.scrollTop = chatbox.scrollHeight;
+}

@@ -1,7 +1,8 @@
 <?php 
   session_start();
   if(isset($_SESSION['unique_id'])){
-    //   echo "entered";
+    error_reporting(0);
+    echo $_SESSION['start_talk'];
  }
  else{
   header('location:index.php');
@@ -28,21 +29,22 @@
             }
             ?>
             <header>
+                <?php  ($row['status'] =="offline now")? $offline = "offline":$offline="";?>
                 <a href="get_massage.php"><i class="fas fa-arrow-left"></i></a>
                     <img src="images/<?php echo $row["img"]?>" alt="">
                     <div class="details">
                         <span><?php echo $row["name"] ?></span>
-                        <p><?php echo $row["status"] ?></p>
+                        <p class="<?php echo $offline==""?"online":"offline"; ?>"><?php  echo $offline==""?"online":"offline"; ?></p>
                     </div>
             </header>
             <div class="chat-Box" id="chatBox">
-
+           
             </div>
             <form action="#"  class="sendmsg"  autocomplete="off">
             <input type="text" name="outgoing_id" value="<?php echo $user_id; ?>" hidden>
             <input type="text" name="incoming_id" value="<?php echo $_SESSION['unique_id'];;?>" hidden>
-              <input type="text" placeholder="send your msg" id="text" name="textsend">
-               <input type="submit" value="send" class="button" id="click">
+              <input type="text" placeholder="send your msg" id="text" name="textsend" class="sendmsg">
+               <input type="submit" value="send" class="button" id="click" >
         </from>
         </section>
     </div>

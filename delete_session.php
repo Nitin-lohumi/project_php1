@@ -1,9 +1,14 @@
 
 <?php
 session_start();
-$logout="please login frist after you can loged out";
- if(isset($_SESSION['name'])){
-   session_unset(); 
+ if(isset($_SESSION['unique_id'])){
+  include_once "connect.php";
+    $status="offline now";
+    $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$status' where unique_id='$_SESSION[unique_id]'");
+   if($sql){
+    session_unset(); 
+    session_destroy();
+   }
     $logout="you are logged out ! thanku for visit this site ";
     if(isset($_POST['login'])){
      header("location:index.php");
@@ -11,7 +16,7 @@ $logout="please login frist after you can loged out";
     }
   }
   else{
-    // setcookie('userInformation',$_SESSION['name'],time()-3600,'/');
+    setcookie('userInformation',$_SESSION['name'],time()-3600,'/');
     session_unset();
     header("location:index.php");
     exit();
@@ -27,6 +32,6 @@ $logout="please login frist after you can loged out";
   <link rel="icon" href="pngegg (5).png">
 </head>
 <body>
-   <h1> <?php echo $logout;?><form method="post"><button name="login">LOGIN</button></form></h1>
+   <h1> <?php  echo $logout;?><form method="post"><button name="login">LOGIN</button></form></h1>
 </body>
 </html>
