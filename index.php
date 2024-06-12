@@ -4,8 +4,9 @@ session_start();
  $passError="";
  $dataError="";
  $suggest="";
-  if(isset($_POST['button'])){
-    $_SESSION['date'] = date( "Y-m-d" ."". "h:i:sa");
+  if(isset($_POST['submit'])){
+    $_SESSION['date'] = date( "Y-m-d" ." ". "h:i:sa");
+    error_reporting(0);
     // $name=$_POST['name'];
     // $name_lenght=strlen($name);
     $pass= $_POST['password'];
@@ -13,11 +14,11 @@ session_start();
     // $_SESSION['name']=$name;
     $_SESSION['pas']=$pass;
     $_SESSION["email"]= $email;
-    if(($email=="")){
+    if($email==""){
            $nameError="* email should not be null";
            $check=1;
         }
-    else if(($pass=="")){
+    else if($pass==""){
          $passError="* password should not be null characters "; 
          $check=1;  
     }
@@ -26,13 +27,13 @@ session_start();
    }
      else{
       include('connect.php');
-        $sql=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email' AND password = '$pass'"); 
-        $num = mysqli_num_rows($sql);
+        $q1=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email' AND password = '$pass'"); 
+        $num = mysqli_num_rows($q1);
         if($num>0) {
           $online="online";
           $_SESSION['date'] = date( "d-m-y "." h:i:sa");
-          $sql1 = mysqli_query($con,"UPDATE data_reistered  SET status='$online' where email='$_SESSION[email]'");
-          $row = mysqli_fetch_array($sql);
+          $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online' where email='$_SESSION[email]'");
+          $row = mysqli_fetch_array($q1);
           $_SESSION['name']=$row["name"];
           header("location:get_massage.php");
           exit();
@@ -75,7 +76,7 @@ session_start();
   <br>
   <p class="para1">don't have an account <a href="new.php" target="_blank">sign in</a></p>
  
-  <input type="submit" name="button" value="login" class="btn">
+  <input type="submit" name="submit" value="login" class="btn">
   
 </form>
   </div>

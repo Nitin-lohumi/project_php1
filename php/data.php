@@ -12,7 +12,7 @@ error_reporting(0);
     else {
         $para = "No msg is available . lets start conversation";
     }
-    (strlen($para) > 30)?$msg = substr($para,0,16)."...":$msg = $para;
+    (strlen($para) > 30)?$msg = substr($para,0,50)."...":$msg = $para;
     ($outgoing_id=$row2['outgoing_msg'])?$you ="You : ": $you= "";
     ($rows['status']=="offline now")||($rows['status']=="")? $offline = "offline":$offline="";
     ($offline =="offline")||($rows['status'] =="")?$color="grey":$color="green";
@@ -27,8 +27,8 @@ error_reporting(0);
                             <p><i class="fas fa-circle" style="color:'.$color.';"></i></p>
                             </div>
                            <div class="main_msg">
-                            <p>'.$you."".$msg.'</p>
-                            <p>'.$date.'</p>
+                            <p style="color:black;">'.$you."".$msg.'</p>
+                            <p style="color:green;">'.$date.'</p>
                            </div>
                             </div>
                         </div>

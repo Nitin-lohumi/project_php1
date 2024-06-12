@@ -2,15 +2,13 @@
 session_start();
 $nameEnter="";
 if(isset($_SESSION['name'])){ 
-// include('protfolio/Main.css'); 
 include('connect.php');
-// error_reporting(0); 
-setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
+error_reporting(0); 
+$cookies =setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
 $nameEnter ="".$_SESSION['name'];
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";
-// *************************
+// *************************  
 if(isset($_POST['update'])){
-
   $updateQuery2=mysqli_query($con,"UPDATE data_secure SET name='$_POST[updatedname]',
   password='$_POST[updatedpass]' WHERE name= '$_SESSION[name]' AND password = '$_SESSION[pas]'");
   $updateQuery=mysqli_query($con,"UPDATE data_reistered SET name='$_POST[updatedname]',
@@ -26,29 +24,29 @@ if(isset($_POST['update'])){
 }
 // ***********************
 $result= $con->query($sql);
-
 if(isset($_POST['logout'])){
-  setcookie('userInformation',"name",time()-3600,'/');
+  setcookie('userInformation',"name",time()-(3600*3),'/');
   header("location:delete_session.php");
   $con->close();
 }
 $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$_SESSION[email]'");
 if($rows=$sql3 -> fetch_assoc()){
      $_SESSION['unique_id']=$rows['unique_id'];
-    //  echo "hello from session". $_SESSION['unique_id'];
 }
-// echo $_SESSION["unique_id"];
-// echo $_SESSION["email"];
-// echo $_SESSION['pas'];
-// echo $_SESSION["name"];
-
-// if(mysqli_num_rows($sql3)>0){
-//   $rows =  mysqli_fetch_assoc($sql3);
-//   $_SESSION["unique_id"] = $rows["unique_id"];
-// }
+if(!isset($_COOKIE['userInformation'])){
+  $offline="offline now";
+  date_default_timezone_set('Asia/Kolkata');
+  $_SESSION['date'] = date("d-m-y "." h:i:sa");
+  $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
+ if($sql){
+  session_unset(); 
+  session_destroy();
+  header("location:index.php");
+ }
+}
 }
 else{
-       header("location:delete_session.php");  
+ header("location:delete_session.php");  
  }
 ?>
 <!DOCTYPE html>

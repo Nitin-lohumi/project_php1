@@ -1,6 +1,7 @@
 
 <?php  
 session_start();
+error_reporting(0); 
 $outgoing_id = $_SESSION["unique_id"];
  include_once "../connect.php";
 //  $query1 = "SELECT * FROM  data_reistered";

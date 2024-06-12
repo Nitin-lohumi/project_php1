@@ -3,9 +3,10 @@
   if(isset($_SESSION['unique_id'])){
     error_reporting(0);
     $blank = $_SESSION['start_talk'];
+    date_default_timezone_set('Asia/Kolkata');
  }
  else{
-  header('location:index.php');
+    header("location:delete_session.php");  
  }
 ?>
 <!DOCTYPE html>
@@ -23,6 +24,7 @@
         <?php   
              include_once "connect.php";
              $user_id = mysqli_real_escape_string($con,$_GET['user_id']);
+             $_SESSION['user_id'] = $user_id;
             $sql  = mysqli_query($con,"SELECT * FROM data_reistered WHERE unique_id ='$user_id'"); 
             if(mysqli_num_rows($sql)>0){
                 $row = mysqli_fetch_assoc($sql);
@@ -36,14 +38,14 @@
                     <div class="details">
                         <span><?php echo $row["name"] ?></span>
                 <p class="<?php echo $offline==""?"online":"offline"; ?>">
-                    <?php echo $row["status"]; ?>
+                <?php echo $offline==""?"online":"offline"; ?>
                 </p>
                 </div>
                </div>
                     <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?"":'last seen '.$_SESSION['date'];?></pre>
             </header>
             <div class="chat-Box" id="chatBox">
-              
+                
             </div>
             <form action="#"  class="sendmsg"  autocomplete="off">
             <input type="text" name="outgoing_id" value="<?php echo $user_id; ?>" hidden>

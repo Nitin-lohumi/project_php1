@@ -1,9 +1,11 @@
 
 <?php
 session_start();
- if(isset($_SESSION['unique_id'])){
+error_reporting(0); 
+//  if(isset($_SESSION['unique_id'])){
   include_once "connect.php";
     $offline="offline now";
+    date_default_timezone_set('Asia/Kolkata');
     $_SESSION['date'] = date( "d-m-y "." h:i:sa");
     $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
    if($sql){
@@ -15,13 +17,13 @@ session_start();
      header("location:index.php");
      exit();
     }
-  }
-  else{
-    setcookie('userInformation',$_SESSION['name'],time()-3600,'/');
-    session_unset();
-    header("location:index.php");
-    exit();
-  }
+  // }
+  // else{
+  //   setcookie('userInformation',$_SESSION['name'],time()-3600,'/');
+  //   session_unset();
+  //   header("location:index.php");
+  //   exit();
+  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">

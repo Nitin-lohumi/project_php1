@@ -1,6 +1,7 @@
 
 <?php 
 session_start();
+error_reporting(0); 
 if(isset($_SESSION['unique_id'])){
   include_once "../connect.php";
   $outgoing_id = mysqli_real_escape_string($con,$_POST['outgoing_id']);
