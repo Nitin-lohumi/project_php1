@@ -167,7 +167,7 @@ display: block;
 }
 .chat-area header{
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 1px 1px 8px rgb(141, 138, 138);
     padding: 5px;
@@ -177,6 +177,10 @@ display: block;
     position: sticky;
     top: -1px;
     z-index: 100;
+}
+.header_one{
+    display: flex;
+    align-items: center;
 }
 .chat-area header img{
     height:50px;

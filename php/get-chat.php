@@ -22,19 +22,21 @@ if(isset($_SESSION['unique_id'])){
                           <p>'.$rows['msg'].'</p>
                            </div>
                            </div>'; 
+                           echo $rows['img'] ."this is sender image ";
         }else{
           $output .='<div class="chat incoming">
                     <img src="images/'.$rows['img'].'"alt="">
                     <div class="details">
-                        <p>'.$rows['msg'].' </p>
+                        <p>'.$rows['msg'].'hello by manual </p>
                     </div>
                         </div>';
+                        echo $rows['img']."this is reciver image ";
         }
     }
     echo $output;
    }
    else{
-    $_SESSION['start_talk'] = " heloo  '.$_SESSION[name].' . lets talk . say Hi ";
+    $_SESSION['start_talk']= " heloo  '.$_SESSION[name].' . lets talk . say Hi ";
    }
 }else{
     header("location:../index.php");

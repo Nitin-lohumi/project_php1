@@ -5,6 +5,7 @@ session_start();
  $dataError="";
  $suggest="";
   if(isset($_POST['button'])){
+    $_SESSION['date'] = date( "Y-m-d" ."". "h:i:sa");
     // $name=$_POST['name'];
     // $name_lenght=strlen($name);
     $pass= $_POST['password'];
@@ -17,7 +18,7 @@ session_start();
            $check=1;
         }
     else if(($pass=="")){
-         $passError=" * password should not be null characters"; 
+         $passError="* password should not be null characters "; 
          $check=1;  
     }
     else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
@@ -28,12 +29,13 @@ session_start();
         $sql=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email' AND password = '$pass'"); 
         $num = mysqli_num_rows($sql);
         if($num>0) {
-          $status="online";
-          $sql1 = mysqli_query($con,"UPDATE data_reistered  SET status='$status' where email='$_SESSION[email]'");
+          $online="online";
+          $_SESSION['date'] = date( "d-m-y "." h:i:sa");
+          $sql1 = mysqli_query($con,"UPDATE data_reistered  SET status='$online' where email='$_SESSION[email]'");
           $row = mysqli_fetch_array($sql);
           $_SESSION['name']=$row["name"];
           header("location:get_massage.php");
-               exit();
+          exit();
           }
         else{
          $dataError="* name and password is not match";

@@ -48,11 +48,12 @@
                 // echo "<script>alert('email is already avaiable');</script>";
             }
             else{
-            $status="active";
+            $offline="offline now";
+            $date = date( "Y-m-d"."". "h:i:sa");
             $random_id = rand(time(),800000);
             // $_SESSION['unique_id'] = "1231";
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
-             $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status');");
+             $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status,date) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status','$date');");
              $massage="data is submited";
                $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$email'");
                if(mysqli_num_rows($sql3)>0){

@@ -3,8 +3,9 @@
 session_start();
  if(isset($_SESSION['unique_id'])){
   include_once "connect.php";
-    $status="offline now";
-    $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$status' where unique_id='$_SESSION[unique_id]'");
+    $offline="offline now";
+    $_SESSION['date'] = date( "d-m-y "." h:i:sa");
+    $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
    if($sql){
     session_unset(); 
     session_destroy();

@@ -2,7 +2,7 @@
   session_start();
   if(isset($_SESSION['unique_id'])){
     error_reporting(0);
-    echo $_SESSION['start_talk'];
+    $blank = $_SESSION['start_talk'];
  }
  else{
   header('location:index.php');
@@ -29,16 +29,21 @@
             }
             ?>
             <header>
-                <?php  ($row['status'] =="offline now")? $offline = "offline":$offline="";?>
+               <div class="header_one">
+               <?php  ($row['status'] =="offline now")||($row['status']=="")? $offline = "offline":$offline="";?>
                 <a href="get_massage.php"><i class="fas fa-arrow-left"></i></a>
                     <img src="images/<?php echo $row["img"]?>" alt="">
                     <div class="details">
                         <span><?php echo $row["name"] ?></span>
-                        <p class="<?php echo $offline==""?"online":"offline"; ?>"><?php  echo $offline==""?"online":"offline"; ?></p>
-                    </div>
+                <p class="<?php echo $offline==""?"online":"offline"; ?>">
+                    <?php echo $row["status"]; ?>
+                </p>
+                </div>
+               </div>
+                    <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?"":'last seen '.$_SESSION['date'];?></pre>
             </header>
             <div class="chat-Box" id="chatBox">
-           
+              
             </div>
             <form action="#"  class="sendmsg"  autocomplete="off">
             <input type="text" name="outgoing_id" value="<?php echo $user_id; ?>" hidden>
