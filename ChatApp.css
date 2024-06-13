@@ -11,7 +11,7 @@ body{
     padding:10px;
     display: flex;
     justify-content: center;
-    width:90%;
+    width:100%;
     margin:auto;
     position:absolute;
     top:50%;
@@ -296,4 +296,24 @@ display: block;
     margin-left: 6px;
     box-shadow: 1px 1px 5px rgb(102, 190, 35);
     background: white;
+}
+@media (max-width: 480px){
+    body{
+        padding:0;
+        margin:0;
+    }
+    .wrapper{
+        padding: 0px;
+        width: 95%;
+        margin: auto;
+        align-items: center;
+    }
+    .user{
+  box-shadow: 1px 1px 1px rgb(152, 139, 139);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: .5rem;
+    }
 }

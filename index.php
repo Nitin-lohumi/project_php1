@@ -27,13 +27,15 @@ session_start();
    }
      else{
       include('connect.php');
-        $q1=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email' AND password = '$pass'"); 
-        $num = mysqli_num_rows($q1);
-        if($num>0) {
+        $q1="SELECT * FROM  data_reistered  WHERE email='$email' AND password= '$pass'"; 
+        $result= mysqli_query($con,$q1);
+        $num = mysqli_num_rows($result);
+        if($num>0){
+          echo "in num";
           $online="online";
           $_SESSION['date'] = date( "d-m-y "." h:i:sa");
           $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online' where email='$_SESSION[email]'");
-          $row = mysqli_fetch_array($q1);
+          $row = mysqli_fetch_array($result);
           $_SESSION['name']=$row["name"];
           header("location:get_massage.php");
           exit();
@@ -47,7 +49,6 @@ session_start();
     } 
   } 
   else{
-    echo "";
     session_destroy();
   }
  ?>   
@@ -63,7 +64,7 @@ session_start();
 <body>
 <div class="box">  
 <h1 class="heading1">login</h1>
-   <form method="post">
+   <form method="POST">
     <span style="color:red;"><?php echo $dataError."<br>" ."<br>"?></span>
   <input type="email" placeholder="Enter your email" name="email" class="name" required>
  
@@ -77,7 +78,6 @@ session_start();
   <p class="para1">don't have an account <a href="new.php" target="_blank">sign in</a></p>
  
   <input type="submit" name="submit" value="login" class="btn">
-  
 </form>
   </div>
 </body>

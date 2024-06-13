@@ -3,7 +3,7 @@ session_start();
 $nameEnter="";
 if(isset($_SESSION['name'])){ 
 include('connect.php');
-error_reporting(0); 
+// error_reporting(0); 
 $cookies =setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
 $nameEnter ="".$_SESSION['name'];
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";
@@ -134,8 +134,7 @@ else{
                 <button id="searchbtn"><i class="fas fa-search"></i></button>
             </div>
             <?php // include("users.php"); ?>
-            <div class="user_list" id="userlist">
-            
+            <div class="user_list" id="userlist">          
            </div>
         </section>
     </div>

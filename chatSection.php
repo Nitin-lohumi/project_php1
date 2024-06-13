@@ -1,7 +1,7 @@
 <?php 
   session_start();
   if(isset($_SESSION['unique_id'])){
-    error_reporting(0);
+    // error_reporting(0);
     $blank = $_SESSION['start_talk'];
     date_default_timezone_set('Asia/Kolkata');
  }
@@ -42,10 +42,10 @@
                 </p>
                 </div>
                </div>
-                    <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?"":'last seen '.$_SESSION['date'];?></pre>
+               <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?"":'last seen '.$_SESSION['date'];?></pre>
             </header>
-            <div class="chat-Box" id="chatBox">
-                
+            <div class="chat-Box" id="chatBox"> 
+
             </div>
             <form action="#"  class="sendmsg"  autocomplete="off">
             <input type="text" name="outgoing_id" value="<?php echo $user_id; ?>" hidden>

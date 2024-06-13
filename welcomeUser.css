@@ -573,12 +573,6 @@ a{
     box-shadow: 1px 1px 5px rgb(102, 190, 35);
     background: white;
 }
-
-
-
-
-
-
 /* ***************************************** */
 @media (max-width: 480px){
     .navbar{
@@ -701,12 +695,11 @@ a{
         cursor: pointer;
         display: none;
     }
-    
 }
 @media (max-width: 370px){
     .profile_info{
-        top:40px;
-        left:0px;
+        top:45px;
+        left:-440px;
         min-width:50%;
     }
     .profile_info .name_heading{

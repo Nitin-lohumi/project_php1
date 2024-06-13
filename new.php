@@ -5,7 +5,7 @@
   $massage1="";
     if(isset($_POST['submit']))
     {
-      error_reporting(0); 
+      // error_reporting(0); 
             // $status="";
       include('connect.php');
       $name=$_POST['name'];
@@ -89,7 +89,7 @@
          <h2 name="heading" style="margin:0px; color: #1cf304, #1cf304; text-align:center;"><?php echo $massage; ?></h2>
          <a class="link_login" href="index.php"><?php echo $massage1; ?></a>
          <br>
-         <form method="POST" enctype="multipart/form-data">
+         <form method="POST">
            <label for="u_name">NAME:</label>  
            <input type="text" placeholder="Enter your name"  name="name"  id="u_name" class="n_p" autocomplete="off"><br>
            <label for="u_email">email:</label>  

@@ -1,6 +1,6 @@
 
 <?php 
-error_reporting(0);
+// error_reporting(0);
  while($rows = mysqli_fetch_assoc($result)){
     $sql2 = "SELECT * FROM messages WHERE (incoming_msg ='$rows[unique_id]' 
     OR outgoing_msg ='$rows[unique_id]') And (incoming_msg = '$outgoing_id' OR outgoing_msg = '$outgoing_id') ORDER BY msg_id DESC LIMIT 1";

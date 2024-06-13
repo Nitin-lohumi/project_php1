@@ -1,8 +1,8 @@
 
 <?php
 session_start();
-error_reporting(0); 
-//  if(isset($_SESSION['unique_id'])){
+// error_reporting(0); 
+ if(isset($_SESSION['unique_id'])){
   include_once "connect.php";
     $offline="offline now";
     date_default_timezone_set('Asia/Kolkata');
@@ -17,13 +17,13 @@ error_reporting(0);
      header("location:index.php");
      exit();
     }
-  // }
-  // else{
-  //   setcookie('userInformation',$_SESSION['name'],time()-3600,'/');
-  //   session_unset();
-  //   header("location:index.php");
-  //   exit();
-  // }
+  }
+  else{
+    setcookie('userInformation',$_SESSION['name'],time()-3600,'/');
+    session_unset();
+    header("location:index.php");
+    exit();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
