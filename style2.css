@@ -3,13 +3,26 @@
     margin: 0px;
     box-sizing:border-box;
 }
+/* body, html {
+    height: 100%;
+  } */
 body{
- background:rgb(95, 144, 109);
+   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-clip: content-box;
   animation-name:slow;
- animation-duration: 2s;
+   animation-duration: 2s;
   animation-iteration-count:1;
   animation-direction: alternate;
   transform: translate(0px , 60px);
+}
+::-webkit-scrollbar {
+    width:0px;
+    background: #000000;
+    color:red;
+    display: none;
 }
 @keyframes slow {
     0%{
@@ -34,6 +47,7 @@ body{
     font-weight: 900;
     
 }
+
 .container p{
     text-align: center;
     text-transform: capitalize;
@@ -45,13 +59,18 @@ body{
 label{
   padding :10px;
   padding-top:0;
-  color:rgb(31, 21, 21);
   font-weight: 800;
   margin-top:10px;
+  text-transform: capitalize;
+}
+.img_insert{
+    display: flex;
+    align-items: center;
 }
 .link_login{
     color:#091a09;
     display:block;
+    text-align: center;
     font-size:1.3rem;
     text-transform: capitalize;
     text-decoration: none;
@@ -81,12 +100,18 @@ label{
     border:1px solid rgb(0, 168, 48);
   }
 .gender{
-    font-size:1.2rem;
-    padding:10px 0;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    margin: 5px 0;
     text-transform: capitalize;
 }
 .gender label{
     color:rgb(35, 41, 41);
+}
+#img{
+    font-size: 1.1rem;
+    padding: 5px 0;
+    margin: 10px 0;
 }
 .phn{   
     width:98%;
@@ -150,47 +175,66 @@ label{
     font-size:1rem;
 }
 @media (max-width: 550px) {
+    body{
+        height:58.8rem;
+        overflow: hidden;
+    }
     .container{
-        width:90%;
-        margin:auto;
-        margin-top:0px;
-        padding:5px;
-        border: 1px solid black;
+        width: 90%;
+        margin: auto;
+        max-height: 750px;
+        margin-top: 0px;
+        padding: 10px;
+        overflow: hidden;
+        border-radius: .5rem;
+        box-shadow: 1px 1px 3px rgb(33, 37, 33);
+    }
+    .link_login{
+    display: block;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    margin: 0;
+    padding: 1px 0;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-align: center;
     }
     .btn{
       width:100%;
-       padding:0px;
+       padding:10px;
     }
     .dob{
         width:50%;
     }
     .container h3{
-        font-size:2rem;
+        font-size: 1.2rem;
         letter-spacing: 5px;
-        font-weight: 800;  
-        margin-top:0; 
+        font-weight: 800;
+        margin-top: 0;
+        padding: 0;
+        margin: 0;
     }
     .container p{
-        color:rgb(115, 120, 24);
-        letter-spacing: 1px;
-        margin-bottom: 30px;
+        color: rgb(0 0 0);
+        padding: 0;
+        padding-top: 10px;
         text-shadow: -0px -0px 0px rgb(0, 0, 0);
     }
 
     .n_p{ 
-        width:95%;
+        width: 90%;
         border-radius: .5rem;
-        padding:10px;
-        font-size:1.1rem;
-        margin:20px;
-        padding-left:10px;
+        font-size: 1rem;
+        padding-left: 10px;
         text-transform: capitalize;
+        margin: 8px 20px
     }
     .phn{   
-        width:95%;
-        padding:10px;
-        padding-left:10px;
-       font-size:1.1rem;
+        width: 90%;
+        /* padding: 10px; */
+        padding-left: 10px;
+        font-size: 1.1rem;
         text-transform: capitalize;
     }
     .dob{
@@ -199,14 +243,35 @@ label{
         text-transform: capitalize;
     }
 }
-@media (max-width: 300px){
-    body{
-        height:30rem;
-        font-size:.7rem;
-    }
+@media (max-width: 370px){
+    body, html {
+        height: 53rem;
+        font-size: .9rem;
+      }
     .container{
-        height:90%;
-        margin:auto;
+        width: 90%;
+        margin: auto;
+        max-height: 750px;
+        margin-top: 0px;
+        padding: 7px;
+        overflow: hidden;
+         border-radius: .5rem;
+        box-shadow: 1px 1px 3px rgb(33, 37, 33);
+    }
+    .n_p {
+        width: 90%;
+        border-radius: .5rem;
+        font-size: 14px;
+        padding-left: 10px;
+        text-transform: capitalize;
+        margin: 2px 20px;
+    }
+    .phn{   
+        width: 90%;
+        margin: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+        text-transform: capitalize;
     }
     .btn{
         font-size:1rem;

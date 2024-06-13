@@ -25,13 +25,13 @@
       $time = time();
       $new_img_name;
        if((empty($name))&&(empty($lock))){
-            $massage="not be null";
+            $massage="**values should not be blank";
        }
        else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-          $massage ="please Enter valid mail";
+          $massage ="**please Enter valid mail";
        }
        else if(empty($file_name)){
-        $massage ="image is not inserted ";
+        $massage ="**image is not inserted ";
        }
        else {
         if(in_array($img_ext,$extension)){
@@ -86,10 +86,8 @@
     <div class="container">   
         <h3>Welcome</h3>   
          <p> enter your detail and submit the form </p>
-         <h2 name="heading" style="margin:10px; color: #1cf304, #1cf304; text-align:center;"><?php echo $massage; ?></h2>
+         <h2 name="heading" style="margin:0px; color: #1cf304, #1cf304; text-align:center;"><?php echo $massage; ?></h2>
          <a class="link_login" href="index.php"><?php echo $massage1; ?></a>
-
-         <br>
          <br>
          <form method="POST" enctype="multipart/form-data">
            <label for="u_name">NAME:</label>  
@@ -106,10 +104,9 @@
             <label>female<input type="radio" value="female" name="gen" id="gen"></label>
             </label>
           </div>
-          <label for="img">
-            <input type="file" accept="image/*" id="img" name="uploadImage">
+          <label for="img" class="img_insert">
+          <i>select Photo: </i> <input type="file" accept="image/*" id="img" name="uploadImage">
           </label>
-          <br>
           <br>
            <label for="phone">PHONE : </label><input type="number" id="phone" class="phn" name="phone" placeholder="Enter your phone" id="phn"  autocomplete="off"><br>
            <br>
