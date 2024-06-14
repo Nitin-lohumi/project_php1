@@ -5,8 +5,8 @@
   $massage1="";
     if(isset($_POST['submit']))
     {
-      // error_reporting(0); 
-            // $status="";
+      error_reporting(0); 
+      $status="";
       include('connect.php');
       $name=$_POST['name'];
       $email=$_POST['email'];
@@ -14,15 +14,8 @@
       $dob=$_POST['dob'];
       $gender=$_POST['gen'];
       $phone=$_POST['phone'];
-      $file_name=  $_FILES['uploadImage']['name'];
-      $temp_name =   $_FILES['uploadImage']['tmp_name'];
-      // print_r($_FILES['uploadImage']);
-      $img_explode = explode('.',$file_name);
-      $img_ext = end($img_explode);
-      $extension = ['pgn','jpeg', 'jpg'];
-      // $_SESSION['email']= $email;
-      // echo $_SESSION['email'];
-      $time = time();
+       $file_name=  $_FILES['uploadImage']['name'];
+        // echo $file_name;
       $new_img_name;
        if((empty($name))&&(empty($lock))){
             $massage="**values should not be blank";
@@ -31,13 +24,20 @@
           $massage ="**please Enter valid mail";
        }
        else if(empty($file_name)){
-        $massage ="**image is not inserted ";
+        $massage = "*please insert the photo";
        }
        else {
+           $time = time();
+           $temp_name =   $_FILES['uploadImage']['tmp_name'];
+           $img_explode = explode('.',$file_name);
+           $img_ext = end($img_explode);
+           $extension = ['png','jpeg', 'jpg'];
+          //  echo $temp_name;
         if(in_array($img_ext,$extension)){
           $time = time();
           $new_img_name=$time.$file_name;
           }  
+          // echo $new_img_name;
           move_uploaded_file($temp_name,"images/".$new_img_name);
           $query1=mysqli_query($con,"SELECT * FROM  data_reistered  WHERE email = '$email'"); 
           $num1 = mysqli_num_rows($query1);
@@ -45,13 +45,11 @@
             {
                 $row = mysqli_fetch_array($query1);
                 $massage="data is already avilable !";
-                // echo "<script>alert('email is already avaiable');</script>";
             }
             else{
             $offline="offline now";
             $date = date( "Y-m-d"."". "h:i:sa");
             $random_id = rand(time(),800000);
-            // $_SESSION['unique_id'] = "1231";
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
              $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status,date) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status','$date');");
              $massage="data is submited";
@@ -70,7 +68,7 @@
             }
             $con->close();
        }
-  }
+   }
 ?>
 <!--**************************************php**close*************************************** -->
 <!DOCTYPE html>
@@ -89,7 +87,7 @@
          <h2 name="heading" style="margin:0px; color: #1cf304, #1cf304; text-align:center;"><?php echo $massage; ?></h2>
          <a class="link_login" href="index.php"><?php echo $massage1; ?></a>
          <br>
-         <form method="POST">
+         <form method="POST" enctype="multipart/form-data">
            <label for="u_name">NAME:</label>  
            <input type="text" placeholder="Enter your name"  name="name"  id="u_name" class="n_p" autocomplete="off"><br>
            <label for="u_email">email:</label>  
@@ -105,7 +103,7 @@
             </label>
           </div>
           <label for="img" class="img_insert">
-          <i>select Photo: </i> <input type="file" accept="image/*" id="img" name="uploadImage">
+          <i>select Photo: </i> <input type="file" accept="image/*" id="img"  name="uploadImage" required>
           </label>
           <br>
            <label for="phone">PHONE : </label><input type="number" id="phone" class="phn" name="phone" placeholder="Enter your phone" id="phn"  autocomplete="off"><br>

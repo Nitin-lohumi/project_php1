@@ -347,13 +347,20 @@ body{
     font-size: 1.2rem;
     font-weight: 600;
 }
-.search{
+.startchat{
     display: flex;
     justify-content: center;
-    /* border:1px solid black; */
     padding:10px;
 }
-.search input{
+.startchat p{
+ font-size: 1.1rem;
+ padding:8px;
+ box-shadow: 1px 1px px grey;
+ margin:0;
+ border-radius: .5rem;
+}
+
+/* .search input{
     width:80%;
     padding:7px;
     padding-left:10px;
@@ -372,19 +379,26 @@ body{
     cursor: pointer;
     margin: 0 7px;
     box-shadow: 1px 1px 2px  rgb(71, 69, 69);
-}
+} */
 .msg{
     display: flex;
     flex-direction: column;
 }
 .user_list{
     max-height: 350px;
+    margin:10px 0;
     overflow-x:hidden;
     scrollbar-width:5px;
+    /* box-shadow: 1px 1px 4px rgb(0, 0, 0); */
+    border-radius: .5rem;
 }
 a{
     text-decoration: none;
 } 
+hr{
+    color:rgb(245, 248, 245);
+    
+}
 .userContent{
    display: flex;
    flex-direction: column;
@@ -591,10 +605,10 @@ a{
     .hide_menu{
         display: block;
         font-size: 1.5rem;
+        border: none;
     }
     .hide_menu i{
         padding:10px;
-        border:1px solid black;
     }
     .logout-btn{
         display: flex;
@@ -695,6 +709,38 @@ a{
         cursor: pointer;
         display: none;
     }
+    .wrapper{
+        padding:0px;
+        display: flex;
+        justify-content: center;
+        width:100%;
+        margin:auto;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }
+    .user {
+        box-shadow: 1px 1px 1px rgb(152, 139, 139);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: .5rem;
+    }
+    .main_msg{
+        font-size: 12px;
+    }
+    .main_msg .date{
+        font-size: 10px;
+    }
+    .startchat p{
+        font-size: 15px;
+        padding:8px;
+        box-shadow: 1px 1px px grey;
+        margin:0;
+        border-radius: .5rem;
+       }
 }
 @media (max-width: 370px){
     .profile_info{

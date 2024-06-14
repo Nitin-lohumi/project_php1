@@ -3,8 +3,8 @@ session_start();
 $nameEnter="";
 if(isset($_SESSION['name'])){ 
 include('connect.php');
-// error_reporting(0); 
-$cookies =setcookie('userInformation',$_SESSION['name'],time()+3600,'/');
+error_reporting(0); 
+$cookies = setcookie('userInformation',$_SESSION['name'],time()+3600*10,'/');
 $nameEnter ="".$_SESSION['name'];
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";
 // *************************  
@@ -22,6 +22,19 @@ if(isset($_POST['update'])){
   }
    header("Refresh:0; url=get_massage.php"); 
 }
+// if($_COOKIE['userInformation']!=$SESSION['name']){
+//   echo "set cookies";
+//   echo $_COOKIE['userInformation'];
+//   $offline="offline now";
+//   date_default_timezone_set('Asia/Kolkata');
+//   $_SESSION['date'] = date("d-m-y "." h:i:sa");
+//   $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
+//   if($sql){
+//   session_unset(); 
+//   session_destroy();
+//   header("location:index.php");
+//   }
+//   } 
 // ***********************
 $result= $con->query($sql);
 if(isset($_POST['logout'])){
@@ -31,18 +44,7 @@ if(isset($_POST['logout'])){
 }
 $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$_SESSION[email]'");
 if($rows=$sql3 -> fetch_assoc()){
-     $_SESSION['unique_id']=$rows['unique_id'];
-}
-if(!isset($_COOKIE['userInformation'])){
-  $offline="offline now";
-  date_default_timezone_set('Asia/Kolkata');
-  $_SESSION['date'] = date("d-m-y "." h:i:sa");
-  $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
- if($sql){
-  session_unset(); 
-  session_destroy();
-  header("location:index.php");
- }
+  $_SESSION['unique_id']=$rows['unique_id'];
 }
 }
 else{
@@ -128,13 +130,14 @@ else{
                     </div>
                 </div>
             </header>
-            <div class="search">
-                <!-- <span class="text">select a user to start</span> -->
-                <input type="text" name="search" id="searchbar" placeholder="Enter the name to search">
-                <button id="searchbtn"><i class="fas fa-search"></i></button>
+            <div class="startchat">
+              <!-- <input type="text" name="search" id="searchbar" placeholder="Enter the name to search"> -->
+                <!-- <button id="searchbtn"><i class="fas fa-search"></i></button> -->
+                 <p>let's Share this  For <a href="index.php"> index.php </a> and start New conversation</p>
             </div>
-            <?php // include("users.php"); ?>
-            <div class="user_list" id="userlist">          
+
+            <div class="user_list" id="userlist"> 
+
            </div>
         </section>
     </div>

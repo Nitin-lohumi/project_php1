@@ -2,7 +2,6 @@
   session_start();
   if(isset($_SESSION['unique_id'])){
     // error_reporting(0);
-    $blank = $_SESSION['start_talk'];
     date_default_timezone_set('Asia/Kolkata');
  }
  else{
@@ -18,7 +17,7 @@
     <link rel="stylesheet" href="ChatApp.css">
     <title>chatApp</title>
 </head>
-<body>
+<body onload="scrollbuttom()">
     <div class="wrapper">
         <section class="chat-area">
         <?php   

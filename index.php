@@ -5,7 +5,6 @@ session_start();
  $dataError="";
  $suggest="";
   if(isset($_POST['submit'])){
-    $_SESSION['date'] = date( "Y-m-d" ." ". "h:i:sa");
     error_reporting(0);
     // $name=$_POST['name'];
     // $name_lenght=strlen($name);
@@ -31,7 +30,6 @@ session_start();
         $result= mysqli_query($con,$q1);
         $num = mysqli_num_rows($result);
         if($num>0){
-          echo "in num";
           $online="online";
           $_SESSION['date'] = date( "d-m-y "." h:i:sa");
           $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online' where email='$_SESSION[email]'");

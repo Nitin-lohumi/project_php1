@@ -8,7 +8,7 @@ body{
     display: none;
 } */
 .wrapper{
-    padding:10px;
+    padding:5px;
     display: flex;
     justify-content: center;
     width:100%;
@@ -54,13 +54,13 @@ body{
     font-size: 1.2rem;
     font-weight: 600;
 }
-.search{
+/* .search{
     display: flex;
     justify-content: center;
-    /* border:1px solid black; */
+    border:1px solid black;
     padding:10px;
-}
-.search input{
+} */
+/* .search input{
     width:80%;
     padding:7px;
     padding-left:10px;
@@ -70,8 +70,8 @@ body{
     margin: 0 7px;
     font-size: 1.1rem;
     box-shadow: 1px 1px 4px  rgb(71, 69, 69);
-}
-.search button{
+} */
+/* .search button{
     border:none;
     outline:none;
     border-radius: .5rem;
@@ -79,7 +79,7 @@ body{
     cursor: pointer;
     margin: 0 7px;
     box-shadow: 1px 1px 2px  rgb(71, 69, 69);
-}
+} */
 .msg{
     display: flex;
     flex-direction: column;
@@ -88,6 +88,8 @@ body{
     max-height: 350px;
     overflow-x:hidden;
     scrollbar-width:5px;
+    box-shadow: 1px 1px 2px rgb(27 253 42);
+    border-radius: .5rem;
 }
 a{
     text-decoration: none;
@@ -96,6 +98,7 @@ a{
    display: flex;
    flex-direction: column;
    width:100%;
+   background: #4b4242;
 }
 .user_details img{
     width: 50px;
@@ -153,13 +156,13 @@ a{
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 8px rgb(152, 139, 139);
-    width:100%;
+    width:90%;
     display: flex;
     flex-direction: column;
     border-radius: .10rem;
     max-height: 630px;
     overflow-x:hidden;
-    height:500px;
+    height:600px;
 }
 .chat-area::-webkit-scrollbar {
 width:0px;
@@ -230,8 +233,9 @@ display: block;
 .chat-Box .chat{
     display: flex;
     align-items: center;
-    height: 5rem;
-    margin: 20px 0;
+    height: 4rem;
+    margin: 0px 0;
+    line-height: 10px;
 }
 .outgoing{
    display: flex;
@@ -248,24 +252,26 @@ display: block;
     /* padding:5px 10px; */
 }
 .chat-Box .incoming .details p{
-    max-width: 400px;
+    max-width: 500px;
     word-wrap: break-word;
     text-align: justify;
     background: rgb(61, 61, 61);
     color: rgb(255, 251, 251);
-    font-size: 1.1rem;
-    padding: 9px 10px;
-    border-radius: 7px 20px 7px;
+    font-size: 1.3rem;
+    line-height: 22px;
+    padding:10px;
+    border-radius: .5rem;
 }
 .chat-Box .outgoing .details p{
-    max-width: 400px;
+    max-width: 500px;
     word-wrap: break-word;
     text-align: justify;
     background: grey;
+    line-height: 22px;
     color:rgb(255, 253, 253);
-    font-size: 1.1rem;
-    padding:6px 10px;
-    border-radius: 2px 20px 5px;
+    font-size: 1.6rem;
+    padding:10px;
+    border-radius: .5rem;
 }
 .sendmsg{
     display: flex;
@@ -304,16 +310,65 @@ display: block;
     }
     .wrapper{
         padding: 0px;
-        width: 95%;
+        width: 100%;
         margin: auto;
         align-items: center;
     }
     .user{
-  box-shadow: 1px 1px 1px rgb(152, 139, 139);
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: .5rem;
+        box-shadow: 1px 1px 1px rgb(152, 139, 139);
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+        /* padding: 10px; */
+        border-radius: .5rem;
+    }
+    .chat-area{
+        display: flex;
+        flex-direction: column;
+        box-shadow: 1px 1px 8px rgb(152, 139, 139);
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        border-radius: .10rem;
+        max-height: 700px;
+        overflow-x: hidden;
+         height: 700px;
+    }
+    .chat-Box{
+        width: 100%;
+        height: 700px;
+        overflow-x: hidden;
+    }
+    .sendmsg{
+        width: 90%;
+        margin:auto;
+    }
+    header pre{
+        font-size: 13px;
+    }
+    .chat-Box .chat {
+        padding:0;
+    }
+    .chat-Box .chat .details{
+        padding:0;
+    }
+    .chat{
+        margin:10px 0;
+    }
+    .chat-Box .incoming .details p{
+        max-width: 200px;
+        font-size: 1rem;
+        line-height: 21px;
+        word-spacing: 2px;
+        padding:8px;
+    }
+    .chat-Box .outgoing .details p{
+        max-width: 200px;
+        font-size: 1.3rem;
+        line-height: 21px;
+        padding:9px;
+    }
+    .header_one{
+        font-size: 16px;
     }
 }

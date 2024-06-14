@@ -2,6 +2,7 @@ let form = document.querySelector(".sendmsg");
 let input_field = form.querySelector("#text");
 let sendbtn =document.getElementById("click");
 let chatbox =document.getElementById("chatBox");
+let check =0;
 form.onsubmit = (e)=>{
     e.preventDefault();
 }
@@ -12,18 +13,24 @@ sendbtn.onclick = () =>{
          if(xhr.readyState==XMLHttpRequest.DONE){
             if(xhr.status==200){
                 input_field.value="";
-                scrolltoBottom();
+                scroll();
             }
          }
     }
     let fromData = new FormData(form);
     xhr.send(fromData);
 }
-chatbox.onmouseenter=()=>{
-    chatbox.classList.add("active");
+function scrollbuttom(){
+ chatbox.onmouseenter=()=>{
+    chatbox.scrollTop=chatbox.scrollHeight
 }
-chatbox.onmouseleave = ()=>{
-    chatbox.classList.remove("active");
+chatbox.onmousemove= ()=>{
+    chatbox.scrollTop=chatbox.scrollHeight;
+}
+chatbox.onmouseenter =()=>{
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+check=1;
 }
 setInterval(()=>{
     let xhr = new XMLHttpRequest();
@@ -33,15 +40,17 @@ setInterval(()=>{
             if(xhr.status==200){
                 let data = xhr.response;
                 chatbox.innerHTML = data;
-                if(!chatbox.classList.contains("active")){
-                    scrolltoBottom();
+                if(check==1){
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                    check =0;
                 }
             }
          }
     }
     let formData = new FormData(form);
     xhr.send(formData);
-},200);
-function scrolltoBottom(){
-    chatbox.scrollTop = chatbox.scrollHeight;
-}
+},700);
+    function scroll(){
+        chatbox.scrollTop=chatbox.scrollHeight;
+        console.log("scroll");
+    }

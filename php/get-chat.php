@@ -8,7 +8,6 @@ if(isset($_SESSION['unique_id'])){
   $incoming_id = mysqli_real_escape_string($con,$_POST['incoming_id']);
 //   echo "<br> outgoing id = ".$outgoing_id;
 //   echo "<br> incoming id = ".$incoming_id;
-    $_SESSION['start_talk']  ="";
   $output = "";
   $sql = "SELECT * FROM  messages
       LEFT JOIN data_reistered ON data_reistered.unique_id = messages.incoming_msg 
@@ -37,9 +36,6 @@ if(isset($_SESSION['unique_id'])){
         }
     }
     echo $output;
-   }
-   else{
-    $_SESSION['start_talk']= " heloo  '.$_SESSION[name].' . lets talk . say Hi ";
    }
 }else{
     header("location:../index.php");
