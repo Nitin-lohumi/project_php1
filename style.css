@@ -153,6 +153,39 @@ span{
     color:rgb(0, 124, 6);
     font-weight: 700;
 }
+/*  ****************************  delete session ******************* */
+.delete_session{  
+    width:60%;
+    margin:auto;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 4px grey;
+}
+.delete_session h1{
+    font-size: 1.3rem;
+    padding:10px;
+    margin:10px 0;
+}
+.delete_session h1 button{
+    border:none;
+    outline: none;
+    padding:10px;
+    color:white;
+    background: green;
+    border-radius: .5rem;
+    margin:10px 0;
+}
+.delete_session h1 button:hover{
+  color: blue;
+  background: greenyellow;
+  padding:11px;
+  cursor: pointer;
+}
+
 @media (max-width: 480px) {
     .box{
         /* background: #323131; */

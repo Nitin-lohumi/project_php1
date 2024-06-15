@@ -35,6 +35,8 @@ session_start();
   <link rel="icon" href="pngegg (5).png">
 </head>
 <body>
-   <h1> <?php  echo $logout;?><form method="post"><button name="login">LOGIN</button></form></h1>
+  <div class="delete_session">
+  <h1> <?php  echo $logout;?><form method="post"><button name="login">LOGIN</button></form></h1>
+  </div>
 </body>
 </html>

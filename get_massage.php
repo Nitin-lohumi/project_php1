@@ -3,7 +3,7 @@ session_start();
 $nameEnter="";
 if(isset($_SESSION['name'])){ 
 include('connect.php');
-error_reporting(0); 
+// error_reporting(0); 
 $cookies = setcookie('userInformation',$_SESSION['name'],time()+3600*10,'/');
 $nameEnter ="".$_SESSION['name'];
 $sql ="SELECT * FROM data_reistered WHERE name = '$_SESSION[name]' AND password = '$_SESSION[pas]' ";

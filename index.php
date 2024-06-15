@@ -5,7 +5,7 @@ session_start();
  $dataError="";
  $suggest="";
   if(isset($_POST['submit'])){
-    error_reporting(0);
+    // error_reporting(0);
     // $name=$_POST['name'];
     // $name_lenght=strlen($name);
     $pass= $_POST['password'];
@@ -64,11 +64,11 @@ session_start();
 <h1 class="heading1">login</h1>
    <form method="POST">
     <span style="color:red;"><?php echo $dataError."<br>" ."<br>"?></span>
-  <input type="email" placeholder="Enter your email" name="email" class="name" required>
+  <input type="email" placeholder="Enter your email" name="email" class="name" required autocomplete="off">
  
   <i style="color:red;"><br><?php echo $nameError ?></i>
   <br>
-  <input type="password" placeholder="Enter your password" name="password" class="password">
+  <input type="password" placeholder="Enter your password" name="password" class="password" autocomplete="off">
   <i style="color:red"><br><?php echo $passError ?></i>
   <br>
   <span style="color:green;"><?php echo $suggest."<br>"?></span>
