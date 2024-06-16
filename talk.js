@@ -8,7 +8,7 @@ form.onsubmit = (e)=>{
 }
 sendbtn.onclick = () =>{
     let xhr = new XMLHttpRequest();
-    xhr.open("POST","php/insert-chat.php",true);
+    xhr.open("POST","php/insert-talk.php",true);
     xhr.onload =()=>{
          if(xhr.readyState==XMLHttpRequest.DONE){
             if(xhr.status==200){
@@ -34,7 +34,7 @@ check=1;
 }
 setInterval(()=>{
     let xhr = new XMLHttpRequest();
-    xhr.open("POST","php/get-chat.php",true);
+    xhr.open("POST","php/get-talk.php",true);
     xhr.onload =()=>{
          if(xhr.readyState==XMLHttpRequest.DONE){
             if(xhr.status==200){

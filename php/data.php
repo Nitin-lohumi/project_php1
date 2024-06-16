@@ -19,7 +19,7 @@ error_reporting(0);
     ($rows['status']=="offline now")||($rows['status']=="")? $offline = "offline":$offline="";
     ($offline =="offline")||($rows['status'] =="")?$color="grey":$color="green";
      $date =  $offline=='offline'?'last seen'.$_SESSION['date']:'';
-    $output .= '<a href="chatSection.php?user_id='.$rows["unique_id"].'" id="scroll">
+    $output .= '<a href="talkSection.php?user_id='.$rows["unique_id"].'" id="scroll">
                     <div class="userContent">
                         <div class="user_details">
                             <img src=images/'.$rows["img"].' alt="">

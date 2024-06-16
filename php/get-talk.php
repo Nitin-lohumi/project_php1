@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
-error_reporting(0); 
+// error_reporting(0); 
 if(isset($_SESSION['unique_id'])){
   include_once "../connect.php";
   $outgoing_id = mysqli_real_escape_string($con,$_POST['outgoing_id']);
@@ -26,6 +26,7 @@ if(isset($_SESSION['unique_id'])){
                           <p>'.$rows['msg'].'</p>
                            </div>
                            </div>'; 
+                           
         }else{
           $output .='<div class="chat incoming">
                     <img src="images/'.$row['img'].'"alt="">

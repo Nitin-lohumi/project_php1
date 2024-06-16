@@ -16,3 +16,4 @@ $query1 = "SELECT * FROM data_reistered WHERE NOT unique_id = '$outgoing_id'";
  }
  echo $output;
   ?>
+  

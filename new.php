@@ -5,7 +5,7 @@
   $massage1="";
     if(isset($_POST['submit']))
     {
-      error_reporting(0); 
+      // error_reporting(0); 
       $status="";
       include('connect.php');
       $name=$_POST['name'];

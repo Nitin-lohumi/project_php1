@@ -247,6 +247,7 @@ label{
     body, html {
         height: 53rem;
         font-size: .9rem;
+        overflow: visible;
       }
     .container{
         width: 90%;
@@ -254,7 +255,7 @@ label{
         max-height: 750px;
         margin-top: 0px;
         padding: 7px;
-        overflow: hidden;
+        overflow: visible;
          border-radius: .5rem;
         box-shadow: 1px 1px 3px rgb(33, 37, 33);
     }
