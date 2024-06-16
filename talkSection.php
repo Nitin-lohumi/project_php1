@@ -1,7 +1,7 @@
 <?php 
   session_start();
   if(isset($_SESSION['unique_id'])){
-    // error_reporting(0);
+    error_reporting(0);
     date_default_timezone_set('Asia/Kolkata');
  }
  else{
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="talkApp.css">
     <title>chatApp</title>
 </head>
-<body onload="scrollbuttom()">
+<body onload="body()">
     <div class="wrapper">
         <section class="chat-area">
         <?php   

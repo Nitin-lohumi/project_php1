@@ -330,9 +330,9 @@ display: block;
         display: flex;
         flex-direction: column;
         border-radius: .10rem;
-        max-height: 700px;
+        max-height: 600px;
         overflow-x: hidden;
-         height: 700px;
+         height: 600px;
     }
     .chat-Box{
         width: 100%;
@@ -357,14 +357,14 @@ display: block;
     }
     .chat-Box .incoming .details p{
         max-width: 200px;
-        font-size: 1rem;
+        font-size: .8rem;
         line-height: 21px;
         word-spacing: 2px;
         padding:8px;
     }
     .chat-Box .outgoing .details p{
         max-width: 200px;
-        font-size: 1.3rem;
+        font-size: 1rem;
         line-height: 21px;
         padding:9px;
     }

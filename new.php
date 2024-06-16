@@ -48,6 +48,7 @@
             }
             else{
             $offline="offline now";
+            date_default_timezone_set('Asia/Kolkata');
             $date = date( "Y-m-d"."". "h:i:sa");
             $random_id = rand(time(),800000);
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");

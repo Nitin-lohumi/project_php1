@@ -20,18 +20,11 @@ sendbtn.onclick = () =>{
     let fromData = new FormData(form);
     xhr.send(fromData);
 }
-function scrollbuttom(){
- chatbox.onmouseenter=()=>{
-    chatbox.scrollTop=chatbox.scrollHeight
-}
-chatbox.onmousemove= ()=>{
-    chatbox.scrollTop=chatbox.scrollHeight;
-}
-chatbox.onmouseenter =()=>{
-    chatbox.scrollTop = chatbox.scrollHeight;
-}
+
+function body(){
 check=1;
 }
+
 setInterval(()=>{
     let xhr = new XMLHttpRequest();
     xhr.open("POST","php/get-talk.php",true);
@@ -42,7 +35,7 @@ setInterval(()=>{
                 chatbox.innerHTML = data;
                 if(check==1){
                     chatbox.scrollTop = chatbox.scrollHeight;
-                    check =0;
+                    check=0;
                 }
             }
          }

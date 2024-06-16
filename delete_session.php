@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-// error_reporting(0); 
+error_reporting(0); 
  if(isset($_SESSION['unique_id'])){
   include_once "connect.php";
     $offline="offline now";

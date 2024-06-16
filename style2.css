@@ -244,7 +244,7 @@ label{
     }
 }
 @media (max-width: 370px){
-    body, html {
+    body, html {    
         height: 53rem;
         font-size: .9rem;
         overflow: visible;

@@ -31,8 +31,9 @@ session_start();
         $num = mysqli_num_rows($result);
         if($num>0){
           $online="online";
+          date_default_timezone_set('Asia/Kolkata');
           $_SESSION['date'] = date( "d-m-y "." h:i:sa");
-          $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online' where email='$_SESSION[email]'");
+          $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online', date='$_SESSION[date]'  where email='$_SESSION[email]'");
           $row = mysqli_fetch_array($result);
           $_SESSION['name']=$row["name"];
           header("location:get_massage.php");
