@@ -457,7 +457,7 @@ hr{
     display: flex;
     flex-direction: column;
     border-radius: .10rem;
-    max-height: 630px;
+    max-height: 630px; 
     overflow-x:hidden;
 }
 ::-webkit-scrollbar {
@@ -511,11 +511,6 @@ hr{
     color:red;
     text-shadow: 1px 1px 1px red;
 }
-/* .chat-Box{
-    background: rgb(218, 218, 218);
-    padding: 10px;
-    height: 450px;
-} */
 .chat-Box .chat{
     border:1px solid black;
     display: flex;
@@ -543,7 +538,7 @@ hr{
     text-align: justify;
     background: rgb(61, 61, 61);
     color:rgb(255, 251, 251);
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding:6px 10px;
     border-radius: 7px 20px 7px;
 }
@@ -553,7 +548,7 @@ hr{
     text-align: justify;
     background: grey;
     color:rgb(255, 253, 253);
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding:6px 10px;
     border-radius: 2px 20px 5px;
 }
@@ -741,6 +736,34 @@ hr{
         margin:0;
         border-radius: .5rem;
        }
+       .chat-Box .incoming .details p{
+        max-width: 400px;
+        word-wrap: break-word;
+        text-align: justify;
+        background: rgb(61, 61, 61);
+        color:rgb(255, 251, 251);
+        font-size: .9rem;
+        padding:6px 10px;
+        border-radius: 7px 20px 7px;
+    }
+    .chat-Box .outgoing .details p{
+        max-width: 400px;
+        word-wrap: break-word;
+        text-align: justify;
+        background: grey;
+        color:rgb(255, 253, 253);
+        font-size: .9rem;
+        padding:6px 10px;
+        border-radius: 2px 20px 5px;
+    }
+    .chat-area header pre{
+       font-size: 10px;
+    }
+    .chat-Box{
+        background: rgb(218, 218, 218);
+        padding: 10px;
+        height: 550px;
+    }
 }
 @media (max-width: 370px){
     .profile_info{
