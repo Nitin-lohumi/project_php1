@@ -18,7 +18,7 @@ error_reporting(0);
     ($outgoing_id=$row2['outgoing_msg'])?$you ="last msg : ":$you=" ";
     ($rows['status']=="offline now")||($rows['status']=="")? $offline = "offline":$offline="";
     ($offline =="offline")||($rows['status'] =="")?$color="grey":$color="green";
-     $date =  $offline=='offline'?'last seen'.$_SESSION['date']:'';
+     $date =  $offline=='offline'?'last seen- '.$rows['date']:'';
     $output .= '<a href="talkSection.php?user_id='.$rows["unique_id"].'" id="scroll">
                     <div class="userContent">
                         <div class="user_details">
@@ -30,7 +30,7 @@ error_reporting(0);
                             </div>
                            <div class="main_msg">
                             <p style="color:black;">'.$you."".$msg.'</p>
-                            <p style="color:green;" class="date">'.$date.'</p>
+                            <p style="color:green;" class="date">'.trim($date,'0').'</p>
                            </div>
                             </div>
                         </div>

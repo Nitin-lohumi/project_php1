@@ -32,10 +32,13 @@ session_start();
         if($num>0){
           $online="online";
           date_default_timezone_set('Asia/Kolkata');
-          $_SESSION['date'] = date( "d-m-y "." h:i:sa");
-          $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online', date='$_SESSION[date]'  where email='$_SESSION[email]'");
           $row = mysqli_fetch_array($result);
           $_SESSION['name']=$row["name"];
+          $unique_id = $row['unique_id'];
+          if(isset($unique_id)){
+              $_SESSION['date'] = date( "d-m-y " ." h:i:sa");
+              $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online', date='$_SESSION[date]'  where email='$_SESSION[email]'");
+          }
           header("location:get_massage.php");
           exit();
           }

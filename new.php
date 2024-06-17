@@ -49,7 +49,7 @@
             else{
             $offline="offline now";
             date_default_timezone_set('Asia/Kolkata');
-            $date = date( "Y-m-d"."". "h:i:sa");
+            $date = date( "d-m-y"."". "h:i:sa");
             $random_id = rand(time(),800000);
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
              $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status,date) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status','$date');");

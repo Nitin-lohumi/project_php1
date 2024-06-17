@@ -41,7 +41,7 @@
                 </p>
                 </div>
                </div>
-               <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?"":'last seen '.$_SESSION['date'];?></pre>
+               <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?" ":'last seen '.trim($row['date'],0);?></pre>
             </header>
             <div class="chat-Box" id="chatBox"> 
 
