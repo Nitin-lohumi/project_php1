@@ -22,7 +22,7 @@ error_reporting(0);
     $output .= '<a href="talkSection.php?user_id='.$rows["unique_id"].'" id="scroll">
                     <div class="userContent">
                         <div class="user_details">
-                            <img src=images/'.$rows["img"].' alt="">
+                            <img src="images/'.$rows['img'].'">
                             <div class="msg">
                             <div class="name">
                             <span>'.$rows["name"].'</span>

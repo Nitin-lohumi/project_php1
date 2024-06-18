@@ -10,7 +10,7 @@ error_reporting(0);
     $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
    if($sql){
     session_unset(); 
-    session_destroy();
+    session_destroy(); 
    }
     $logout="you are logged out ! thanku for visit this site ";
     if(isset($_POST['login'])){
