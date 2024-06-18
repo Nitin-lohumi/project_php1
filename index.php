@@ -36,8 +36,9 @@ session_start();
           $_SESSION['name']=$row["name"];
           $unique_id = $row['unique_id'];
           if(isset($unique_id)){
-              $_SESSION['date'] = date( "d-m-y " ." h:i:sa");
-              $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online', date='$_SESSION[date]'  where email='$_SESSION[email]'");
+              $_SESSION['time']= date('h:i:sa');
+              $_SESSION['date'] = date("y-m-d");
+              $q2 = mysqli_query($con,"UPDATE data_reistered  SET status='$online', date='$_SESSION[date]',time='$_SESSION[time]'  where email='$_SESSION[email]'");
           }
           header("location:get_massage.php");
           exit();

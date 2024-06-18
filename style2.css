@@ -12,25 +12,17 @@ body{
    background-size: cover;
    background-repeat: no-repeat;
    background-clip: content-box;
-  animation-name:slow;
-   animation-duration: 2s;
+  /* animation-name:slow; */
+   /* animation-duration: 2s;
   animation-iteration-count:1;
   animation-direction: alternate;
-  transform: translate(0px , 60px);
+  transform: translate(0px , 60px); */
 }
 ::-webkit-scrollbar {
     width:0px;
     background: #000000;
     color:red;
     display: none;
-}
-@keyframes slow {
-    0%{
-     transform: scale(0);
-    }
-    100%{
-        transform: scale(1)translate(0px , 60px);
-    }
 }
 .container{
    padding:10px;
@@ -174,20 +166,24 @@ label{
     margin-left:10px;
     font-size:1rem;
 }
-@media (max-width: 550px) {
+@media (max-width: 700px) {
     body{
-        height:58.8rem;
+        height: 59rem;
         overflow: hidden;
     }
     .container{
         width: 90%;
         margin: auto;
-        max-height: 750px;
-        margin-top: 0px;
-        padding: 10px;
-        overflow: hidden;
+        max-height: 766px;
+        height: 750px;
+        padding: 7px;
+        /* overflow: visible; */
+        position: absolute;
         border-radius: .5rem;
         box-shadow: 1px 1px 3px rgb(33, 37, 33);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .link_login{
     display: block;
@@ -243,21 +239,25 @@ label{
         text-transform: capitalize;
     }
 }
-@media (max-width: 370px){
+@media (max-width: 400px){
     body, html {    
-        height: 53rem;
+        height: 63rem;
         font-size: .9rem;
-        overflow: visible;
+     /* overflow: visible */
       }
     .container{
         width: 90%;
         margin: auto;
         max-height: 750px;
-        margin-top: 0px;
+        height: 650px;
         padding: 7px;
-        overflow: visible;
-         border-radius: .5rem;
+        /* overflow: visible; */
+        position: absolute;
+        border-radius: .5rem;
         box-shadow: 1px 1px 3px rgb(33, 37, 33);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .n_p {
         width: 90%;

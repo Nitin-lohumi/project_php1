@@ -28,6 +28,9 @@
             if(mysqli_num_rows($sql)>0){
                 $row = mysqli_fetch_assoc($sql);
             }
+            // $date =$row['time'];
+            // $dt = new DateTime($date);
+            // $dt_change = $dt->format('h:i:sa');
             ?>
             <header>
                <div class="header_one">
@@ -41,7 +44,7 @@
                 </p>
                 </div>
                </div>
-               <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?" ":'last seen '.trim($row['date'],0);?></pre>
+               <pre style="color:green; float:right;"> <?php echo $row['status']=="online"?" ":'last seen  '.$row['time'];?></pre>
             </header>
             <div class="chat-Box" id="chatBox"> 
 

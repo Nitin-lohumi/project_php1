@@ -5,7 +5,7 @@
   $massage1="";
     if(isset($_POST['submit']))
     {
-      // error_reporting(0); 
+      error_reporting(0); 
       $status="";
       include('connect.php');
       $name=$_POST['name'];
@@ -49,10 +49,11 @@
             else{
             $offline="offline now";
             date_default_timezone_set('Asia/Kolkata');
-            $date = date( "d-m-y"."". "h:i:sa");
+            $date = date("y-m-d");
+            $time = date("h:i:sa");
             $random_id = rand(time(),800000);
              $sql1  = mysqli_query($con,"INSERT INTO data_secure (name,email,password) VALUES ('$name','$email','$lock');");
-             $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status,date) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status','$date');");
+             $sql  = mysqli_query($con,"INSERT INTO data_reistered (unique_id,name,email,password,DoB,gender,Phone,img,status,date,time) VALUES('$random_id','$name','$email','$lock','$dob','$gender','$phone','$new_img_name','$status','$date','$time');");
              $massage="data is submited";
                $sql3 = mysqli_query($con, "SELECT * FROM data_reistered WHERE email = '$email'");
                if(mysqli_num_rows($sql3)>0){

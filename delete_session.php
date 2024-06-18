@@ -6,8 +6,9 @@ error_reporting(0);
   include_once "connect.php";
     $offline="offline now";
     date_default_timezone_set('Asia/Kolkata');
-    $_SESSION['date'] = date( "d-m-y "." h:i:sa");
-    $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline',date='$_SESSION[date]' where unique_id='$_SESSION[unique_id]'");
+    $_SESSION['date'] = date("y-m-d");
+    $_SESSION['time'] = date("h:i:sa");
+    $sql = mysqli_query($con,"UPDATE data_reistered  SET status='$offline', date='$_SESSION[date]',time='$_SESSION[time]' where unique_id='$_SESSION[unique_id]'");
    if($sql){
     session_unset(); 
     session_destroy(); 
