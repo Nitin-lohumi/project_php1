@@ -53,7 +53,7 @@
             <input type="text" name="outgoing_id" value="<?php echo $user_id; ?>" hidden>
             <input type="text" name="incoming_id" value="<?php echo $_SESSION['unique_id'];;?>" hidden>
               <input type="text" placeholder="send your msg" id="text" name="textsend" class="sendmsg">
-               <input type="submit" value="send" class="button" id="click" >
+              <button class="button" type="submit"  id="click"><i class="fa-solid fa-paper-plane"></i></button>
         </from>
         </section>
     </div>

@@ -1,7 +1,10 @@
 body{
     padding:0;
     margin:0px;
+    height:55rem;
     transition: all .5s linear;
+    background: #f0f0f0ed;
+    overflow-y: hidden;
 }
 ::-webkit-scrollbar {
     width:0px;
@@ -14,6 +17,7 @@ body{
 /* ************************************ */
 .navbar{
     padding:0;
+    /* position: fixed; */
     display: flex;
     /* flex-direction: column-reverse; */
     justify-content: space-between;
@@ -312,18 +316,21 @@ body{
     transform: translate(-50%,-50%);
 }
 .user{
-    box-shadow: 1px 1px 1px rgb(152, 139, 139);
+    /* box-shadow: 1px 1px 1px rgb(152, 139, 139); */
     width:90%;
     display: flex;
     flex-direction: column;
     padding:10px;
-    border-radius: .5rem;
+    border-radius: 27px;
+    background: linear-gradient(145deg, #c7c1c1, #6aff71);
+    box-shadow:  1px 1px 2px #ebebeb;
 }
 .content{
     display: flex;
     justify-content: flex-start;
-    box-shadow: 1px 2px 3px  rgb(105, 100, 100);
-    border-radius: .3rem;
+    box-shadow: -1px 2px -5px  rgb(90, 89, 89);
+    border-radius: .6rem;
+    background: linear-gradient(120deg, #648eef, #dcdcdd);
 }
 .content img{
     width: 50px;
@@ -389,26 +396,29 @@ body{
     margin:10px 0;
     overflow-x:hidden;
     scrollbar-width:5px;
-    /* box-shadow: 1px 1px 4px rgb(0, 0, 0); */
-    border-radius: .5rem;
 }
 a{
     text-decoration: none;
 } 
-hr{
-    color:rgb(245, 248, 245);
-    
-}
 .userContent{
    display: flex;
    flex-direction: column;
-   width:100%;
+   width:99%;
+   margin:10px 1px;
+   border-radius: .5rem;
+   background: #ffffff;
+   box-shadow: -1px 3px 2px  rgb(168, 173, 171);
+   padding:2px;
 }
 .user_details img{
     width: 50px;
     height: 50px;
     border-radius:50%;
     padding: 10px 15px;
+    margin:10px;
+    background: transparent;
+    box-shadow: 1px 1px 3px rgb(100, 99, 99);
+    /* border:1px solid rgb(79, 79, 79); */
 }
 .user_details{
     width:100%;
@@ -723,9 +733,6 @@ hr{
         padding: 10px;
         border-radius: .5rem;
     }
-    .main_msg{
-        font-size: 12px;
-    }
     .main_msg .date{
         font-size: 10px;
     }
@@ -763,6 +770,16 @@ hr{
         background: rgb(218, 218, 218);
         padding: 10px;
         height: 550px;
+    }
+    .userContent{
+        display: flex;
+        flex-direction: column;
+        width:98.6%;
+        box-shadow: 2px 1px 6px  rgb(23, 23, 23);
+        padding:2px;
+     }
+     .main_msg p{
+        font-size: 10px;
     }
 }
 @media (max-width: 370px){
@@ -804,5 +821,15 @@ hr{
         display: flex;
         align-items: center;
         justify-content: flex-start;
+    }
+    .userContent{
+        display: flex;
+        flex-direction: column;
+        width:98.6%;
+        box-shadow: 2px 1px 6px  rgb(23, 23, 23);
+        padding:2px;
+     }
+     .main_msg p{
+        font-size: 10px;
     }
 }

@@ -135,9 +135,8 @@ else{
                 <!-- <button id="searchbtn"><i class="fas fa-search"></i></button> -->
                  <p>let's Share this  For <a href="index.php"> index.php </a> and start New conversation</p>
             </div>
-
             <div class="user_list" id="userlist"> 
-
+              
            </div>
         </section>
     </div>

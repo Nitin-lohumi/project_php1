@@ -293,15 +293,18 @@ display: block;
     box-shadow: 1px 1px 5px rgb(102, 104, 101);
 }
 .sendmsg .button{
-    /* padding: 5px 8px; */
-    font-size: 1.1rem;
+    padding: 5px 8px;
+    font-size: 1.7rem;
     border-radius: .6rem;
     outline:none;
     border:none;
     cursor: pointer;
     margin-left: 6px;
-    box-shadow: 1px 1px 5px rgb(102, 190, 35);
+    text-shadow: 1px 1px 5px rgb(0, 137, 2);
     background: white;
+}
+.button i {
+    color:rgb(15, 103, 15);
 }
 @media (max-width: 480px){
     body{
