@@ -61,7 +61,7 @@ else{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="pngegg.png">
 </head> 
-<body> 
+<body id="cover"> 
 <form method="post"> 
  <!--******************navbarStart**********************-->
   <div class="navbar">
@@ -72,7 +72,7 @@ else{
       <p id="nameclick"><?php echo $nameEnter; ?></p>
     </div>
 
-    <div class="hide_menu">
+    <div class="hide_menu" id="hidemenu">
             <i class="fa-solid fa-bars" id="menu_mobile"></i>
     </div>
 <!-- ***** -->
@@ -105,6 +105,10 @@ else{
     </div>
 <!-- **** -->
    <div class="logout-btn">
+   <div class="mode" id="mode">
+      <i class="fa-solid fa-moon" id="night"></i>
+       <i class="fa-solid fa-sun" id="day"></i>
+    </div>
    <?php if(isset($_SESSION['name'])){?>
     <button name="logout">logout</button>
     <?php }?>

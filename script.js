@@ -108,3 +108,58 @@ function updated(){
    document.getElementById("logoutbtn").style.display="block";
    update_heading.style.display="none";
 }
+
+//  mode -----  night or day mode  ..   
+let cover = document.getElementById("body");
+let mode  =  document.getElementById("mode");
+let day =  document.getElementById("day");
+let night  = document.getElementById("night");
+let store = localStorage.getItem("change");
+let menu_mobile = document.getElementById("menu_mobile");
+let click=0;
+click = localStorage.getItem("click");
+mode.addEventListener("click",()=>{
+        if(click==1){
+            click=0;
+            day.style.display='none';
+            night.style.display='block';
+            yourProfile.style.background="linear-gradient(90deg, rgb(236, 182, 182) 0%, rgba(146, 235, 207, 0.377) 22%, rgb(77, 168, 186) 95%, rgb(32, 179, 209) 100%)";
+            yourProfile.style.color="white";
+            localStorage.setItem("change","day");
+            localStorage.setItem("click",click);
+            ChangeBg("white","black");
+            menu_mobile.style.color="black";
+
+        }
+        else if(click==0){
+            click=1;
+            day.style.display='block';
+            night.style.display='none';
+            yourProfile.style.background="linear-gradient(90deg, rgba(36, 254, 203, 0.906) 0%, rgba(102, 254, 219, 0.721) 22%, rgb(30, 40, 42) 95%, rgb(21, 63, 72) 100%)";
+            localStorage.setItem("change","night");
+            localStorage.setItem("click",click);
+            menu_mobile.style.color="white";
+            ChangeBg("black","white");
+        }
+        console.log(click);
+})
+if(localStorage.getItem("change")=="day"){
+    day.style.display='none';
+    night.style.display='block';
+    ChangeBg("white","black");
+    menu_mobile.style.color="black";
+    document.body.style.background = "white";
+}
+else{
+    day.style.display='block';
+    night.style.display='none';
+    ChangeBg("black","white");
+    menu_mobile.style.color="white";
+    document.body.style.background = "black";
+}
+// console.log(store);
+function ChangeBg(color,text){
+    document.body.style.background = color; 
+    yourProfile.style.color=text;
+
+}

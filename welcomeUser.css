@@ -3,7 +3,7 @@ body{
     margin:0px;
     height:55rem;
     transition: all .5s linear;
-    background: #f0f0f0ed;
+    background: #000000ed;
     overflow-y: hidden;
 }
 ::-webkit-scrollbar {
@@ -34,9 +34,23 @@ body{
     padding:6px 5px;
     margin:0;
     cursor: pointer;
-    transition: all .1s linear;
+    transition: all 2s linear;
     border-radius: .5rem;
+    box-shadow: 1px 1px 1px #3b3333;
+    background:linear-gradient(90deg, rgba(36, 254, 203, 0.906) 0%, rgba(102, 254, 219, 0.721) 22%, rgb(30, 40, 42) 95%, rgb(21, 63, 72) 100%);
+    animation-name: color;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
 }
+/* @keyframes color{
+    0%{
+     
+    }
+    100%{
+        background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    }
+} */
+
 .Your_profile:hover{
     box-shadow: 1px 1px 2px grey;
 }
@@ -64,7 +78,6 @@ body{
     font-size: 1.5rem;
 }
 .hide_menu i {
-    border:1px solid black;
     padding:10px;
     cursor: pointer;
 }
@@ -90,7 +103,37 @@ body{
 }
 .logout-btn{
     display: flex;
+    justify-content:flex-end;
+    align-items: center;
     padding:0 5px;
+    width:50%;
+}
+.logout-btn .mode {
+   margin:0 20px;
+   padding:0;
+
+}
+.logout-btn .mode .fa-solid{
+    padding:3px 10px;
+    font-size: 1.2rem;
+    color:#ffffff;
+    background:transparent;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px white;
+}
+#night{
+    display: none;
+    color: #000000;
+    text-shadow: 1px 1px 4px rgb(12, 11, 11);
+}
+.logout-btn .mode .fa-solid:active{
+    animation-name:viberate;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition: all .1s ease-out; 
+    font-size: 1.1rem;
+    color: rgb(55, 46, 46);
 }
 .logout-btn button{
     background: red;
@@ -110,6 +153,7 @@ body{
     font-size: 1.1rem;
     color: white;
 }
+
 @keyframes viberate {
     0%{
       transform: rotateX(15deg);
@@ -322,7 +366,7 @@ body{
     flex-direction: column;
     padding:10px;
     border-radius: 27px;
-    background: linear-gradient(145deg, #c7c1c1, #6aff71);
+    background: linear-gradient(145deg, #c7c1c1, #65b669);
     box-shadow:  1px 1px 2px #ebebeb;
 }
 .content{
@@ -330,7 +374,7 @@ body{
     justify-content: flex-start;
     box-shadow: -1px 2px -5px  rgb(90, 89, 89);
     border-radius: .6rem;
-    background: linear-gradient(120deg, #648eef, #dcdcdd);
+    background: linear-gradient(120deg, #c1d3fe, #dcdcdd);
 }
 .content img{
     width: 50px;
@@ -411,10 +455,10 @@ a{
    padding:2px;
 }
 .user_details img{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius:50%;
-    padding: 10px 15px;
+    padding:0;
     margin:10px;
     background: transparent;
     box-shadow: 1px 1px 3px rgb(100, 99, 99);
@@ -614,6 +658,7 @@ a{
     }
     .hide_menu i{
         padding:10px;
+        border:none;
     }
     .logout-btn{
         display: flex;
