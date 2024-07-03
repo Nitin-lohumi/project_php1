@@ -1,13 +1,13 @@
 
 <?php 
 session_start();
-// error_reporting(0); 
+error_reporting(0); 
 if(isset($_SESSION['unique_id'])){
   include_once "../connect.php";
   $outgoing_id = mysqli_real_escape_string($con,$_POST['outgoing_id']);
   $incoming_id = mysqli_real_escape_string($con,$_POST['incoming_id']);
-//   echo "<br> outgoing id = ".$outgoing_id;
-//   echo "<br> incoming id = ".$incoming_id;
+  // echo "<br> outgoing id = ".$outgoing_id;
+  // echo "<br> incoming id = ".$incoming_id; 
   $output = "";
   $sql = "SELECT * FROM  messages
       LEFT JOIN data_reistered ON data_reistered.unique_id = messages.incoming_msg 
@@ -23,7 +23,7 @@ if(isset($_SESSION['unique_id'])){
         if($rows['outgoing_msg']===$incoming_id){
             $output .='<div class="chat outgoing"> 
                           <div class="details">
-                          <p>'.$rows['msg'].'</p>
+                          <p id="out">'.$rows['msg'].'</p>
                            </div>
                            </div>'; 
                            
@@ -31,7 +31,7 @@ if(isset($_SESSION['unique_id'])){
           $output .='<div class="chat incoming">
                     <img src="images/'.$row['img'].'"alt="">
                     <div class="details">
-                        <p>'.$rows['msg'].'</p>
+                        <p id="in">'.$rows['msg'].'</p>
                     </div>
                         </div>';
         }
@@ -41,5 +41,4 @@ if(isset($_SESSION['unique_id'])){
 }else{
     header("location:../index.php");
 }
-
 ?>

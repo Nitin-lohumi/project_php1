@@ -137,7 +137,7 @@ a{
 .name .offline{
     color:rgb(98, 98, 79);
 }
-.user_details p {
+.user_details p{
     padding:0;
     margin:5px;
     color:rgb(4, 3, 3);
@@ -149,13 +149,35 @@ a{
     color:black;
 }
 .main_msg p{
-    color:black;
+    color:rgb(6, 6, 6);
 }
+#night{
+    display: none;
+    color: #000000;
+    text-shadow: 1px 1px 4px rgb(12, 11, 11);
+}
+ .talkmode .fa-solid:active{
+    transition: all .1s ease-out; 
+    font-size: 1.1rem;
+    color: rgb(60, 255, 0);
+}
+.talkmode {
+    margin:0 20px;
+    padding:0;
+ }
+ .talkmode .fa-solid{
+    padding: 6px 10px;
+    font-size: 1.8rem;
+    color: #000000;
+    background: transparent;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px white;
+ }
 /*  *************chat Area *************** */
 .chat-area{
     display: flex;
     flex-direction: column;
-    box-shadow: 1px 1px 8px rgb(152, 139, 139);
+    box-shadow: 1px 1px 8px #988b8b;
     width:90%;
     display: flex;
     flex-direction: column;
@@ -266,9 +288,9 @@ display: block;
     max-width: 500px;
     word-wrap: break-word;
     text-align: justify;
-    background: grey;
+    background: rgb(228, 222, 222);
     line-height: 22px;
-    color:rgb(255, 253, 253);
+    color:rgb(55, 52, 52);
     font-size: 1.6rem;
     padding:10px;
     border-radius: .5rem;
@@ -286,7 +308,7 @@ display: block;
 .sendmsg input[type="text"]{
     padding: 5px 8px;
     font-size: 1.1rem;
-    width:85%;
+    width: 90%;
     border-radius: .6rem;
     outline:none;
     border:none;

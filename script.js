@@ -110,13 +110,18 @@ function updated(){
 }
 
 //  mode -----  night or day mode  ..   
-let cover = document.getElementById("body");
+
+// let cover = document.getElementById("body");
 let mode  =  document.getElementById("mode");
 let day =  document.getElementById("day");
 let night  = document.getElementById("night");
 let store = localStorage.getItem("change");
 let menu_mobile = document.getElementById("menu_mobile");
+let talkbody = document.getElementById("talkbody");
+
 let click=0;
+let bool= true;
+localStorage.setItem("click",1);
 click = localStorage.getItem("click");
 mode.addEventListener("click",()=>{
         if(click==1){
@@ -129,7 +134,7 @@ mode.addEventListener("click",()=>{
             localStorage.setItem("click",click);
             ChangeBg("white","black");
             menu_mobile.style.color="black";
-
+            bool = true;
         }
         else if(click==0){
             click=1;
@@ -140,6 +145,7 @@ mode.addEventListener("click",()=>{
             localStorage.setItem("click",click);
             menu_mobile.style.color="white";
             ChangeBg("black","white");
+            bool = false;
         }
         console.log(click);
 })
@@ -161,5 +167,7 @@ else{
 function ChangeBg(color,text){
     document.body.style.background = color; 
     yourProfile.style.color=text;
-
+}
+if(!bool){
+    localStorage.setItem("click",1);
 }
