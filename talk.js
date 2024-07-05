@@ -6,7 +6,7 @@ let check =0;
 form.onsubmit = (e)=>{
     e.preventDefault();
 }
-sendbtn.onclick = () =>{
+sendbtn.onclick = () => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST","php/insert-talk.php",true);
     xhr.onload =()=>{
@@ -24,8 +24,6 @@ sendbtn.onclick = () =>{
 function body(){
 check=1;
 }
-
-
 setInterval(()=>{
     let xhr = new XMLHttpRequest();
     xhr.open("POST","php/get-talk.php",true);

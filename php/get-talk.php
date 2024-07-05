@@ -13,14 +13,14 @@ if(isset($_SESSION['unique_id'])){
       LEFT JOIN data_reistered ON data_reistered.unique_id = messages.incoming_msg 
      WHERE (outgoing_msg ='$outgoing_id' AND incoming_msg ='$incoming_id') OR 
    (outgoing_msg ='$incoming_id' AND incoming_msg ='$outgoing_id') ORDER BY msg_id ASC";
-   $sql1 = mysqli_query($con,"SELECT * FROM data_reistered WHERE unique_id ='$_SESSION[user_id]'");
+   $sql1 = mysqli_query($con,"SELECT * FROM data_reistered WHERE unique_id = '$_SESSION[user_id]'");
    if(mysqli_num_rows($sql1)>0){
      $row=mysqli_fetch_assoc($sql1);
    }
    $query = mysqli_query($con,$sql);
    if(mysqli_num_rows($query)>0){
     while($rows=mysqli_fetch_assoc($query)){
-        if($rows['outgoing_msg']===$incoming_id){
+        if($rows['outgoing_msg']===$incoming_id){//session[unique id];
             $output .='<div class="chat outgoing"> 
                           <div class="details">
                           <p id="out">'.$rows['msg'].'</p>

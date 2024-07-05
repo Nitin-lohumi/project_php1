@@ -5,7 +5,7 @@ error_reporting(0);
     $sql2 = "SELECT * FROM messages WHERE (incoming_msg ='$rows[unique_id]' 
     OR outgoing_msg ='$rows[unique_id]') And (incoming_msg = '$outgoing_id' OR
      outgoing_msg = '$outgoing_id') ORDER BY msg_id DESC LIMIT 1";
-    $query2 = mysqli_query($con,$sql2);
+    $query2 = mysqli_query($con,$sql2);//mysqli_query return true and false;
     $row2 = mysqli_fetch_assoc($query2);
     if(mysqli_num_rows($query2)>0){
         $para = $row2['msg'];
